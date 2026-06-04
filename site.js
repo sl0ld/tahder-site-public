@@ -4,6 +4,8 @@ const loginForm = document.getElementById('login-form');
 const accountEmpty = document.getElementById('account-empty');
 const accountActive = document.getElementById('account-active');
 const accountEmail = document.getElementById('account-email');
+const accountPlan = document.getElementById('account-plan');
+const accountPreps = document.getElementById('account-preps');
 const logoutButton = document.getElementById('logout-button');
 const loginError = document.getElementById('login-error');
 
@@ -19,13 +21,24 @@ function readSession() {
   return session;
 }
 
-function renderSession() {
+async function renderSession() {
   const session = readSession();
   accountEmpty.hidden = Boolean(session);
   accountActive.hidden = !session;
 
   if (session) {
     accountEmail.textContent = session.email;
+    accountPlan.textContent = `الخطة: ${session.subscription}`;
+    accountPreps.textContent = 'بنك التحاضير: جار التحديث';
+
+    if (globalThis.TahderSupabase?.isConfigured()) {
+      try {
+        const preparations = await globalThis.TahderSupabase.listPreparations();
+        accountPreps.textContent = `بنك التحاضير: ${preparations.length} تحضير`;
+      } catch (_) {
+        accountPreps.textContent = 'بنك التحاضير: تعذر التحديث';
+      }
+    }
   }
 }
 
@@ -56,6 +69,7 @@ loginForm.addEventListener('submit', async (event) => {
         throw new Error('الحساب صحيح، لكنه لا يملك اشتراكاً فعالاً حالياً.');
       }
 
+      await globalThis.TahderSupabase.recordActivity(authSession, 'site_login');
       localStorage.setItem(sessionKey, JSON.stringify({ email, subscription: subscription.status }));
     } else if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
       localStorage.setItem(sessionKey, JSON.stringify({ email, subscription: 'demo' }));
@@ -64,7 +78,7 @@ loginForm.addEventListener('submit', async (event) => {
     }
 
     dialog.hidden = true;
-    renderSession();
+    await renderSession();
     document.getElementById('account').scrollIntoView({ behavior: 'smooth' });
   } catch (error) {
     loginError.textContent = error.message;
@@ -77,7 +91,7 @@ logoutButton.addEventListener('click', async () => {
     await globalThis.TahderSupabase.signOut();
   }
   localStorage.removeItem(sessionKey);
-  renderSession();
+  await renderSession();
 });
 
 renderSession();

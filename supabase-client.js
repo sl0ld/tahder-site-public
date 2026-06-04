@@ -84,5 +84,26 @@
     ) || null;
   }
 
-  global.TahderSupabase = { getActiveSubscription, isConfigured, readSession, signIn, signOut };
+  async function listPreparations(session = readSession()) {
+    return request('/rest/v1/preparations?select=id,lesson_title,subject,grade,term,status,source,created_at&order=created_at.desc&limit=20', { session });
+  }
+
+  async function recordActivity(session, eventType, metadata = {}) {
+    return request('/rest/v1/activity_logs', {
+      method: 'POST',
+      headers: { Prefer: 'return=minimal' },
+      body: JSON.stringify({ user_id: session.user.id, event_type: eventType, metadata }),
+      session,
+    });
+  }
+
+  global.TahderSupabase = {
+    getActiveSubscription,
+    isConfigured,
+    listPreparations,
+    readSession,
+    recordActivity,
+    signIn,
+    signOut,
+  };
 })(globalThis);
