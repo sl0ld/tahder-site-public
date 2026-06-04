@@ -159,6 +159,7 @@ code { direction:ltr; font-size:12px; }
 .account-section { display:grid; grid-template-columns:1fr .9fr; align-items:center; gap:42px; }
 .account-card { border:1px solid var(--line); border-radius:18px; background:#fff; box-shadow:0 16px 38px rgba(16,59,74,.08); padding:18px; }
 .account-empty, .account-active { display:grid; gap:12px; }
+.account-empty[hidden], .account-active[hidden] { display:none; }
 .account-empty span, .account-meta { color:var(--muted); font-size:13px; font-weight:700; }
 .account-active small, .account-active strong { display:block; }
 .active-pill { width:max-content; border-radius:999px; background:var(--mint-soft); color:var(--mint-dark); font-size:12px; font-weight:900; padding:8px 10px; }
