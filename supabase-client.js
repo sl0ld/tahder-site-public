@@ -88,6 +88,10 @@
     return request('/rest/v1/preparations?select=id,lesson_title,subject,grade,term,status,source,created_at&order=created_at.desc&limit=20', { session });
   }
 
+  async function listLinkedDevices(session = readSession()) {
+    return request('/rest/v1/linked_devices?select=id,label,last_seen_at,is_active,created_at&order=last_seen_at.desc&limit=20', { session });
+  }
+
   async function recordActivity(session, eventType, metadata = {}) {
     return request('/rest/v1/activity_logs', {
       method: 'POST',
@@ -100,6 +104,7 @@
   global.TahderSupabase = {
     getActiveSubscription,
     isConfigured,
+    listLinkedDevices,
     listPreparations,
     readSession,
     recordActivity,

@@ -6,6 +6,7 @@ const accountActive = document.getElementById('account-active');
 const accountEmail = document.getElementById('account-email');
 const accountPlan = document.getElementById('account-plan');
 const accountPreps = document.getElementById('account-preps');
+const accountDevices = document.getElementById('account-devices');
 const logoutButton = document.getElementById('logout-button');
 const loginError = document.getElementById('login-error');
 
@@ -30,6 +31,7 @@ async function renderSession() {
     accountEmail.textContent = session.email;
     accountPlan.textContent = `الخطة: ${session.subscription}`;
     accountPreps.textContent = 'بنك التحاضير: جار التحديث';
+    accountDevices.textContent = 'الأجهزة المرتبطة: جار التحديث';
 
     if (globalThis.TahderSupabase?.isConfigured()) {
       try {
@@ -37,6 +39,18 @@ async function renderSession() {
         accountPreps.textContent = `بنك التحاضير: ${preparations.length} تحضير`;
       } catch (_) {
         accountPreps.textContent = 'بنك التحاضير: تعذر التحديث';
+      }
+
+      try {
+        const devices = await globalThis.TahderSupabase.listLinkedDevices();
+        const activeDevices = devices.filter((device) => device.is_active);
+        const latestDevice = activeDevices[0] || devices[0];
+        const latestText = latestDevice?.last_seen_at
+          ? ` · آخر نشاط ${new Date(latestDevice.last_seen_at).toLocaleDateString('ar-SA')}`
+          : '';
+        accountDevices.textContent = `الأجهزة المرتبطة: ${activeDevices.length || devices.length} جهاز${latestText}`;
+      } catch (_) {
+        accountDevices.textContent = 'الأجهزة المرتبطة: تعذر التحديث';
       }
     }
   }
