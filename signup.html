@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260605-signup">
+    <link rel="stylesheet" href="styles.css?v=20260605-phone-signup">
   </head>
   <body>
     <div class="page-shell signup-shell">
@@ -33,7 +33,7 @@
             <h1>أنشئ حسابك وابدأ ربط الإضافة.</h1>
             <p>
               الحساب يوحد الموقع والجوال والإكستنشن في اشتراك واحد وبنك تحاضير واحد.
-              بعد التسجيل سنجهز تفعيل التجربة أو الاشتراك المناسب.
+              أدخل بريدك ورقم جوالك حتى نقدر نربط حسابك ونفعل التجربة أو الاشتراك المناسب.
             </p>
             <div class="signup-benefits">
               <span>نفس الحساب للموقع والجوال</span>
@@ -45,20 +45,20 @@
           <form class="signup-form" id="signup-form">
             <p class="form-message" id="signup-message" hidden></p>
             <label>
-              <span>اسم المعلم</span>
-              <input name="display_name" type="text" placeholder="مثال: أحمد العتيبي" required>
-            </label>
-            <label>
               <span>البريد الإلكتروني</span>
               <input name="email" type="email" placeholder="teacher@example.com" required>
             </label>
             <label>
-              <span>اسم المدرسة</span>
-              <input name="school_name" type="text" placeholder="اختياري">
+              <span>رقم الجوال</span>
+              <input name="phone" type="tel" inputmode="tel" dir="ltr" placeholder="05xxxxxxxx" required>
             </label>
             <label>
               <span>كلمة المرور</span>
               <input name="password" type="password" placeholder="8 أحرف أو أكثر" minlength="8" required>
+            </label>
+            <label>
+              <span>اسم المعلم</span>
+              <input name="display_name" type="text" placeholder="اختياري">
             </label>
             <button class="primary-button full-button" type="submit">إنشاء الحساب</button>
             <a class="dialog-link" href="index.html#account">لديك حساب؟ سجل الدخول</a>

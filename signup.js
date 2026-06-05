@@ -12,8 +12,8 @@ signupForm.addEventListener('submit', async (event) => {
   const formData = new FormData(signupForm);
   const email = String(formData.get('email') || '').trim();
   const password = String(formData.get('password') || '');
+  const phone = String(formData.get('phone') || '').trim();
   const displayName = String(formData.get('display_name') || '').trim();
-  const schoolName = String(formData.get('school_name') || '').trim();
 
   showMessage('جاري إنشاء الحساب...', 'info');
 
@@ -24,10 +24,14 @@ signupForm.addEventListener('submit', async (event) => {
 
     const result = await globalThis.TahderSupabase.signUp(email, password, {
       display_name: displayName,
-      school_name: schoolName,
+      phone,
     });
 
     if (result?.session) {
+      await globalThis.TahderSupabase.updateProfile(result.session, {
+        phone,
+        display_name: displayName || email.split('@')[0],
+      });
       showMessage('تم إنشاء الحساب وتسجيل الدخول. الخطوة التالية تفعيل الاشتراك التجريبي من لوحة الإدارة.', 'success');
     } else {
       showMessage('تم إنشاء الحساب. إذا كان تأكيد البريد مفعلاً، راجع بريدك لتأكيد الحساب ثم سجل الدخول.', 'success');

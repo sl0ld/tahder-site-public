@@ -76,6 +76,15 @@
     return result;
   }
 
+  async function updateProfile(session, profile) {
+    return request('/rest/v1/profiles', {
+      method: 'PATCH',
+      headers: { Prefer: 'return=minimal' },
+      body: JSON.stringify(profile),
+      session,
+    });
+  }
+
   async function signOut() {
     const session = readSession();
     if (session) {
@@ -126,5 +135,6 @@
     signIn,
     signUp,
     signOut,
+    updateProfile,
   };
 })(globalThis);
