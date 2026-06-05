@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#087364">
+    <title>إنشاء حساب | تحضيري</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260605-signup">
+  </head>
+  <body>
+    <div class="page-shell signup-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html#top" aria-label="تحضيري">
+          <span class="brand-mark">ت</span>
+          <span>
+            <strong>تحضيري</strong>
+            <small>مساعد المعلم الذكي</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <a class="outline-button" href="index.html#account">تسجيل الدخول</a>
+          <a class="soft-button" href="index.html">العودة للرئيسية</a>
+        </div>
+      </header>
+
+      <main class="signup-main">
+        <section class="signup-card">
+          <div class="signup-copy">
+            <p class="eyebrow">حساب تحضيري</p>
+            <h1>أنشئ حسابك وابدأ ربط الإضافة.</h1>
+            <p>
+              الحساب يوحد الموقع والجوال والإكستنشن في اشتراك واحد وبنك تحاضير واحد.
+              بعد التسجيل سنجهز تفعيل التجربة أو الاشتراك المناسب.
+            </p>
+            <div class="signup-benefits">
+              <span>نفس الحساب للموقع والجوال</span>
+              <span>ربط آمن مع الإكستنشن</span>
+              <span>لا نحفظ كلمة مرور مدرستي</span>
+            </div>
+          </div>
+
+          <form class="signup-form" id="signup-form">
+            <p class="form-message" id="signup-message" hidden></p>
+            <label>
+              <span>اسم المعلم</span>
+              <input name="display_name" type="text" placeholder="مثال: أحمد العتيبي" required>
+            </label>
+            <label>
+              <span>البريد الإلكتروني</span>
+              <input name="email" type="email" placeholder="teacher@example.com" required>
+            </label>
+            <label>
+              <span>اسم المدرسة</span>
+              <input name="school_name" type="text" placeholder="اختياري">
+            </label>
+            <label>
+              <span>كلمة المرور</span>
+              <input name="password" type="password" placeholder="8 أحرف أو أكثر" minlength="8" required>
+            </label>
+            <button class="primary-button full-button" type="submit">إنشاء الحساب</button>
+            <a class="dialog-link" href="index.html#account">لديك حساب؟ سجل الدخول</a>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="supabase-client.js"></script>
+    <script src="signup.js"></script>
+  </body>
+</html>

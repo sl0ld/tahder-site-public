@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260604-account-devices">
+    <link rel="stylesheet" href="styles.css?v=20260605-signup">
   </head>
   <body>
     <div class="page-shell">
@@ -26,7 +26,10 @@
           <a href="#install">التثبيت</a>
           <a href="#account">حسابي</a>
         </nav>
-        <button class="outline-button" data-open-login type="button">تسجيل الدخول</button>
+        <div class="header-actions">
+          <a class="soft-button" href="signup.html">إنشاء حساب</a>
+          <button class="outline-button" data-open-login type="button">تسجيل الدخول</button>
+        </div>
       </header>
 
       <main id="top">
@@ -38,7 +41,8 @@
               تحضيري يقرأ الدرس المحدد في منصة مدرستي، ثم يجهّز الحقول ويعبئها تلقائياً بعد مراجعتك.
             </p>
             <div class="hero-actions">
-              <a class="primary-button" href="#install">ثبّت الإضافة</a>
+              <a class="primary-button" href="signup.html">ابدأ التسجيل</a>
+              <a class="soft-button" href="#install">ثبّت الإضافة</a>
               <a class="soft-button" href="https://schools.madrasati.sa/?Language=1" target="_blank" rel="noreferrer">فتح مدرستي</a>
               <a class="outline-button" href="tools.html">عرض الأدوات</a>
             </div>
@@ -137,6 +141,7 @@
               <strong>لم تسجل الدخول بعد</strong>
               <span>سجل الدخول لعرض اشتراكك وربط الإضافة.</span>
               <button class="primary-button" data-open-login type="button">تسجيل الدخول</button>
+              <a class="soft-button" href="signup.html">إنشاء حساب جديد</a>
             </div>
             <div class="account-active" id="account-active" hidden>
               <div>
@@ -169,7 +174,7 @@
         <button class="dialog-close" type="button" aria-label="إغلاق">×</button>
         <p class="eyebrow">حساب تحضيري</p>
         <h2>سجّل دخولك</h2>
-        <p>حالياً يمكنك استخدام أي بريد وكلمة مرور لتجربة الواجهة.</p>
+        <p>ادخل بحساب تحضيري الفعال لمتابعة الاشتراك وبنك التحاضير.</p>
         <p class="login-error" id="login-error" hidden></p>
         <label>
           <span>البريد الإلكتروني</span>
@@ -180,6 +185,7 @@
           <input name="password" type="password" placeholder="••••••••" required>
         </label>
         <button class="primary-button full-button" value="default" type="submit">تسجيل الدخول</button>
+        <a class="dialog-link" href="signup.html">ليس لديك حساب؟ أنشئ حساباً جديداً</a>
       </form>
     </div>
     <script src="config.js"></script>

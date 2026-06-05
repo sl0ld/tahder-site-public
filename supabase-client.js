@@ -61,6 +61,21 @@
     return session;
   }
 
+  async function signUp(email, password, metadata = {}) {
+    const result = await request('/auth/v1/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        password,
+        data: metadata,
+      }),
+      session: null,
+    });
+
+    if (result?.session) saveSession(result.session);
+    return result;
+  }
+
   async function signOut() {
     const session = readSession();
     if (session) {
@@ -109,6 +124,7 @@
     readSession,
     recordActivity,
     signIn,
+    signUp,
     signOut,
   };
 })(globalThis);
