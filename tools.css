@@ -7,6 +7,9 @@
 .tools-search { display:flex; max-width:760px; align-items:center; gap:9px; margin-top:24px; border:1px solid var(--line); border-radius:14px; background:#fff; padding:8px 12px; }
 .tools-search span { color:var(--mint); font-size:12px; font-weight:900; }
 .tools-search input { flex:1; min-width:0; border:0; outline:0; color:var(--ink); padding:8px 0; }
+.tools-strip { display:flex; max-width:1180px; margin:0 auto 20px; flex-wrap:wrap; gap:8px; padding:0 24px; }
+.tools-strip a { border:1px solid var(--line); border-radius:13px; background:#fff; color:var(--mint-dark); font-size:12px; font-weight:900; padding:10px 12px; box-shadow:0 10px 24px rgba(16,59,74,.035); }
+.tools-strip a:hover { border-color:#bce4dc; background:var(--mint-soft); }
 .tools-categories { display:flex; max-width:1180px; margin:auto; flex-wrap:wrap; gap:7px; padding:0 24px 20px; }
 .category-button { border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--muted); font-size:12px; font-weight:900; padding:9px 12px; }
 .category-button.active, .category-button:hover { border-color:var(--mint); background:var(--mint-soft); color:var(--mint-dark); }
@@ -24,6 +27,8 @@
 .tool-status.external { background:var(--rose-soft); color:var(--rose); }
 .tool-card h2 { margin:0 0 7px; font-size:17px; letter-spacing:0; }
 .tool-card p { margin-bottom:10px; color:var(--muted); font-size:12px; font-weight:600; line-height:1.75; }
+.tool-meta { display:flex; grid-column:1 / -1; flex-wrap:wrap; gap:6px; margin:2px 0 10px; }
+.tool-meta span { border-radius:999px; background:#f7fbfa; color:var(--muted); font-size:10px; font-weight:900; padding:5px 8px; }
 .tool-flow { display:flex; grid-column:1 / -1; flex-wrap:wrap; gap:6px; margin:0 0 2px; padding:0; list-style:none; }
 .tool-flow li { border:1px solid var(--line); border-radius:999px; background:var(--mist); color:var(--muted); font-size:10px; font-weight:900; padding:6px 8px; }
 .tool-card a, .tool-card button { grid-column:1 / -1; width:max-content; border:0; border-radius:9px; background:var(--mint-soft); color:var(--mint-dark); font-size:11px; font-weight:900; padding:9px 12px; }
@@ -31,4 +36,4 @@
 .empty-tools { color:var(--muted); font-weight:800; text-align:center; }
 .active-link { color:var(--mint-dark); }
 @media(max-width:850px){ .tools-grid{grid-template-columns:repeat(2,1fr);} }
-@media(max-width:560px){ .tools-hero,.tools-categories,.tools-grid{padding-inline:16px;} .tools-grid{grid-template-columns:1fr;} }
+@media(max-width:560px){ .tools-hero,.tools-strip,.tools-categories,.tools-grid{padding-inline:16px;} .tools-grid{grid-template-columns:1fr;} }

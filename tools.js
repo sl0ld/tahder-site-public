@@ -10,11 +10,12 @@ function normalize(text) {
 
 function renderTools() {
   const query = normalize(searchInput.value);
+  const hasQuery = query.length > 0;
   let visibleCount = 0;
 
   cards.forEach((card) => {
     const categories = String(card.dataset.category || '').split(/\s+/);
-    const inCategory = activeCategory === 'all' || categories.includes(activeCategory);
+    const inCategory = hasQuery || activeCategory === 'all' || categories.includes(activeCategory);
     const matchesSearch = !query || normalize(`${card.dataset.search} ${card.innerText}`).includes(query);
     card.hidden = !(inCategory && matchesSearch);
     if (!card.hidden) visibleCount += 1;
