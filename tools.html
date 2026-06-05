@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="tools.css">
+    <link rel="stylesheet" href="styles.css?v=20260605-phone-signup">
+    <link rel="stylesheet" href="tools.css?v=20260605-tools-fix">
   </head>
   <body>
     <header class="site-header">
@@ -20,116 +20,170 @@
           <small>مساعد المعلم الذكي</small>
         </span>
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="التنقل الرئيسي">
         <a href="index.html">الرئيسية</a>
         <a class="active-link" href="tools.html">الأدوات</a>
         <a href="index.html#install">التثبيت</a>
       </nav>
-      <a class="outline-button" href="index.html#account">حسابي</a>
+      <div class="header-actions">
+        <a class="soft-button" href="signup.html">إنشاء حساب</a>
+        <a class="outline-button" href="index.html#account">حسابي</a>
+      </div>
     </header>
 
     <main>
       <section class="tools-hero">
-        <p class="eyebrow">مكتبة خدمات المعلم</p>
-        <h1>كل أدواتك اليومية<br><span>بواجهة</span> أسهل.</h1>
-        <p>اختر الأداة التي تحتاجها. بعض الخدمات ستعمل مباشرة، والبقية سنربطها تدريجياً مع حساب تحضيري.</p>
+        <p class="eyebrow">مركز أدوات تحضيري</p>
+        <h1>أدوات أقل،<br><span>لكنها تخدم التحضير فعلاً.</span></h1>
+        <p>
+          رتبنا الأدوات حسب رحلة المعلم اليومية: افتح المنصة، جهز التحضير، احفظه في البنك،
+          ثم تابع التوزيع والمرفقات والتقارير. أي أداة غير جاهزة موضحة بحالة واضحة.
+        </p>
         <label class="tools-search">
           <span>بحث</span>
-          <input id="tools-search" type="search" placeholder="ابحث عن توزيع المنهج، التقارير، أوراق العمل...">
+          <input id="tools-search" type="search" placeholder="ابحث عن مدرستي، التحضير الذكي، بنك التحاضير، توزيع المنهج...">
         </label>
       </section>
 
       <section class="tools-categories" aria-label="تصنيفات الأدوات">
         <button class="category-button active" data-filter="all" type="button">الكل</button>
+        <button class="category-button" data-filter="ready" type="button">جاهزة للتجربة</button>
+        <button class="category-button" data-filter="ai" type="button">ذكاء اصطناعي</button>
         <button class="category-button" data-filter="platforms" type="button">المنصات</button>
-        <button class="category-button" data-filter="planning" type="button">التحضير والمناهج</button>
+        <button class="category-button" data-filter="planning" type="button">التخطيط</button>
         <button class="category-button" data-filter="content" type="button">المحتوى</button>
-        <button class="category-button" data-filter="reports" type="button">التقارير والتحليل</button>
-        <button class="category-button" data-filter="teacher" type="button">خدمات المعلم</button>
       </section>
 
       <section class="tools-grid" id="tools-grid">
-        <article class="tool-card featured" data-category="platforms" data-search="منصة مدرستي تحضير">
-          <span class="tool-icon">م</span><div><h2>منصة مدرستي</h2><p>فتح منصة مدرستي وتشغيل مساعد التحضير.</p></div>
-          <a href="https://schools.madrasati.sa/?Language=1" target="_blank" rel="noreferrer">فتح</a>
+        <article class="tool-card featured" data-category="ready platforms" data-search="مدرستي منصة مدرستي فتح madrasati">
+          <span class="tool-icon">م</span>
+          <div>
+            <span class="tool-status ready">جاهز</span>
+            <h2>فتح منصة مدرستي</h2>
+            <p>افتح منصة مدرستي لاستخدام الإكستنشن على صفحة التحضير الحقيقية.</p>
+          </div>
+          <a href="https://schools.madrasati.sa/?Language=1" target="_blank" rel="noreferrer">فتح مدرستي</a>
         </article>
-        <article class="tool-card" data-category="platforms" data-search="نظام نور درجات مهارات">
-          <span class="tool-icon">ن</span><div><h2>نظام نور</h2><p>الوصول إلى خدمات الدرجات والمهارات.</p></div>
-          <a href="https://noor.moe.gov.sa/Noor/Login.aspx" target="_blank" rel="noreferrer">فتح</a>
+
+        <article class="tool-card featured" data-category="ready ai" data-search="تحضير ذكي gemini ai توليد تحضير">
+          <span class="tool-icon">AI</span>
+          <div>
+            <span class="tool-status ready">جاهز</span>
+            <h2>التحضير الذكي</h2>
+            <p>توليد أهداف، استراتيجيات، وسائل، أنشطة، واجب، وإغلاق الدرس باستخدام Gemini Flash.</p>
+          </div>
+          <a href="signup.html">ابدأ بحسابك</a>
         </article>
-        <article class="tool-card" data-category="planning" data-search="التحضير المسرد تحضير درس">
-          <span class="tool-icon">ت</span><div><h2>التحضير المسرد</h2><p>إنشاء تحضير مرتب قابل للمراجعة والطباعة.</p></div><button type="button">قريباً</button>
+
+        <article class="tool-card" data-category="ready ai content" data-search="بنك التحاضير حفظ تحضير مشاركة">
+          <span class="tool-icon">ب</span>
+          <div>
+            <span class="tool-status ready">جاهز</span>
+            <h2>بنك التحاضير</h2>
+            <p>كل تحضير يتم توليده أو حفظه يظهر في نفس الحساب للموقع والجوال والإكستنشن.</p>
+          </div>
+          <a href="index.html#account">عرض الحساب</a>
         </article>
-        <article class="tool-card" data-category="planning" data-search="توزيع المنهج خطة أسابيع">
-          <span class="tool-icon">خ</span><div><h2>توزيع المنهج</h2><p>توزيع مرن لمفردات المنهج على الأسابيع.</p></div><button type="button">قريباً</button>
+
+        <article class="tool-card" data-category="ready platforms" data-search="إكستنشن اضافة chrome مدرستي">
+          <span class="tool-icon">إ</span>
+          <div>
+            <span class="tool-status ready">جاهز محلياً</span>
+            <h2>إكستنشن تحضيري</h2>
+            <p>إضافة Chrome لتسجيل الدخول، التحقق من الاشتراك، وتعبئة حقول التحضير داخل مدرستي.</p>
+          </div>
+          <a href="index.html#install">طريقة التثبيت</a>
         </article>
-        <article class="tool-card" data-category="planning" data-search="الخطة الفصلية">
-          <span class="tool-icon">ف</span><div><h2>الخطة الفصلية</h2><p>إنشاء خطة فصلية ومتابعة إنجازها.</p></div><button type="button">قريباً</button>
+
+        <article class="tool-card" data-category="planning" data-search="توزيع المنهج اسابيع خطة فصلية">
+          <span class="tool-icon">خ</span>
+          <div>
+            <span class="tool-status soon">قادم</span>
+            <h2>توزيع المنهج</h2>
+            <p>تقسيم الدروس على الأسابيع، مع إعادة جدولة مرنة عند الإجازات أو التعليق.</p>
+          </div>
+          <button type="button">قيد التطوير</button>
         </article>
-        <article class="tool-card" data-category="planning" data-search="خريطة نواتج التعلم">
-          <span class="tool-icon">خ</span><div><h2>خريطة نواتج التعلم</h2><p>ربط المهارات والنواتج بالدروس والتقويم.</p></div><button type="button">قريباً</button>
+
+        <article class="tool-card" data-category="content ai" data-search="اوراق عمل كويز تصحيح تلقائي pdf">
+          <span class="tool-icon">و</span>
+          <div>
+            <span class="tool-status soon">قادم</span>
+            <h2>أوراق العمل التفاعلية</h2>
+            <p>تحويل ورقة العمل أو PDF إلى نشاط سريع قابل للتصحيح والحفظ.</p>
+          </div>
+          <button type="button">قيد التطوير</button>
         </article>
-        <article class="tool-card" data-category="planning" data-search="الخطة العلاجية">
-          <span class="tool-icon">ع</span><div><h2>الخطة العلاجية</h2><p>إنشاء خطة لمعالجة المهارات غير المتقنة.</p></div><button type="button">قريباً</button>
+
+        <article class="tool-card" data-category="content ai" data-search="واجب واجبات اثراءات اسئلة">
+          <span class="tool-icon">س</span>
+          <div>
+            <span class="tool-status soon">قادم</span>
+            <h2>واجب وإثراء مقترح</h2>
+            <p>اقتراح واجب مرتبط بنفس الدرس بعد توليد التحضير مباشرة.</p>
+          </div>
+          <button type="button">قيد التطوير</button>
         </article>
-        <article class="tool-card" data-category="planning" data-search="الخطة الإثرائية">
-          <span class="tool-icon">إ</span><div><h2>الخطة الإثرائية</h2><p>أنشطة إضافية للطلاب المتقدمين.</p></div><button type="button">قريباً</button>
+
+        <article class="tool-card" data-category="planning ai" data-search="حقول مدرستي نسخ تعبئة تلقائية">
+          <span class="tool-icon">ح</span>
+          <div>
+            <span class="tool-status ready">جاهز</span>
+            <h2>حقول مدرستي الجاهزة</h2>
+            <p>صياغة التحضير بطريقة مناسبة للنسخ أو التعبئة داخل منصة مدرستي.</p>
+          </div>
+          <a href="signup.html">تجربة الحساب</a>
         </article>
-        <article class="tool-card" data-category="content" data-search="عروض تقديمية بوربوينت">
-          <span class="tool-icon">ع</span><div><h2>عروض تقديمية</h2><p>عروض صفية مرتبة حسب المادة والصف والدرس.</p></div><button type="button">قريباً</button>
+
+        <article class="tool-card" data-category="platforms" data-search="نور noor منصة نور">
+          <span class="tool-icon">ن</span>
+          <div>
+            <span class="tool-status external">خارجي</span>
+            <h2>فتح نظام نور</h2>
+            <p>رابط سريع لنظام نور. الربط الذكي معه سيكون مرحلة مستقلة لاحقاً.</p>
+          </div>
+          <a href="https://noor.moe.gov.sa/Noor/Login.aspx" target="_blank" rel="noreferrer">فتح نور</a>
         </article>
-        <article class="tool-card" data-category="content" data-search="اختبارات أوراق عمل نماذج إجابة">
-          <span class="tool-icon">و</span><div><h2>اختبارات وأوراق عمل</h2><p>أوراق عمل واختبارات ونماذج إجابة.</p></div><button type="button">قريباً</button>
+
+        <article class="tool-card" data-category="content" data-search="مكتبة الكتب دليل المعلم مناهج">
+          <span class="tool-icon">ك</span>
+          <div>
+            <span class="tool-status soon">قادم</span>
+            <h2>مكتبة الكتب والأدلة</h2>
+            <p>مجلد خاص للكتب والأدلة ليستخدمها Gemini كمراجع عند توليد التحضير.</p>
+          </div>
+          <button type="button">قيد الربط</button>
         </article>
-        <article class="tool-card" data-category="content" data-search="الكتب الدراسية">
-          <span class="tool-icon">ك</span><div><h2>الكتب الدراسية</h2><p>مكتبة كتب مرتبة حسب الصف والمادة والفصل.</p></div><button type="button">قريباً</button>
+
+        <article class="tool-card" data-category="planning" data-search="تقارير خطة انجاز سجل تصدير">
+          <span class="tool-icon">ت</span>
+          <div>
+            <span class="tool-status soon">قادم</span>
+            <h2>تقارير وخطة الإنجاز</h2>
+            <p>متابعة ما تم تحضيره، ما تم تصديره، وما يحتاج مراجعة خلال الأسبوع.</p>
+          </div>
+          <button type="button">قيد التطوير</button>
         </article>
-        <article class="tool-card" data-category="content" data-search="حلول الكتب دليل المعلم">
-          <span class="tool-icon">ح</span><div><h2>حلول الكتب</h2><p>حلول ودليل المعلم للمواد المتاحة.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="content" data-search="الفهم القرائي">
-          <span class="tool-icon">ق</span><div><h2>الفهم القرائي</h2><p>نصوص وأسئلة وتمارين للفهم القرائي.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="content" data-search="الألعاب التعليمية">
-          <span class="tool-icon">ل</span><div><h2>الألعاب التعليمية</h2><p>أنشطة وألعاب تفاعلية للاستخدام في الفصل.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="content" data-search="خرائط المفاهيم">
-          <span class="tool-icon">م</span><div><h2>خرائط المفاهيم</h2><p>تلخيص بصري للمفاهيم والروابط الأساسية.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="reports" data-search="تحليل نتائج الطلاب رسوم بيانية">
-          <span class="tool-icon">ن</span><div><h2>تحليل نتائج الطلاب</h2><p>تحليل النتائج وعرض الرسوم والمؤشرات.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="reports" data-search="التقارير الشواهد التلقائية">
-          <span class="tool-icon">ش</span><div><h2>التقارير والشواهد</h2><p>إنشاء تقارير وشواهد تلقائية للمعلم.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="reports" data-search="الإنجاز اليومي الأسبوعي الشهري">
-          <span class="tool-icon">إ</span><div><h2>الإنجاز اليومي والأسبوعي</h2><p>متابعة الإنجاز وعرض ملخصات دورية.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="teacher" data-search="ملف إنجاز المعلم">
-          <span class="tool-icon">م</span><div><h2>ملف الإنجاز</h2><p>تجهيز ملف إنجاز قابل للتعديل والطباعة.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="teacher" data-search="كشوف متابعة سجلات درجات">
-          <span class="tool-icon">ك</span><div><h2>كشوف المتابعة</h2><p>سجلات متابعة ودرجات Word وExcel.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="teacher" data-search="شهادات شكر تقدير">
-          <span class="tool-icon">ش</span><div><h2>شهادات الشكر</h2><p>شهادات جاهزة ومعبأة ببيانات الطلاب.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="teacher" data-search="النشاط الطلابي">
-          <span class="tool-icon">ط</span><div><h2>النشاط الطلابي</h2><p>توثيق الأنشطة وتنظيم المشاركات الطلابية.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="teacher" data-search="تحضيري فورمز نماذج">
-          <span class="tool-icon">ف</span><div><h2>تحضيري فورمز</h2><p>نماذج سريعة للاختبارات والمتابعة.</p></div><button type="button">قريباً</button>
-        </article>
-        <article class="tool-card" data-category="teacher" data-search="التصحيح الآلي تصحيحي">
-          <span class="tool-icon">ص</span><div><h2>التصحيح الآلي</h2><p>تصحيح الواجبات والأنشطة وإضافة الدرجات.</p></div><button type="button">قريباً</button>
+
+        <article class="tool-card" data-category="ready" data-search="تسجيل حساب اشتراك تجربة">
+          <span class="tool-icon">ح</span>
+          <div>
+            <span class="tool-status ready">جاهز</span>
+            <h2>إنشاء حساب تحضيري</h2>
+            <p>التسجيل بالبريد ورقم الجوال لاستخدام نفس الحساب في الموقع والجوال والإكستنشن.</p>
+          </div>
+          <a href="signup.html">إنشاء حساب</a>
         </article>
       </section>
+
       <p class="empty-tools" id="empty-tools" hidden>لم نجد أداة بهذا الاسم.</p>
     </main>
+
     <footer>
       <a class="brand" href="index.html"><span class="brand-mark">ت</span><strong>تحضيري</strong></a>
-      <p><a href="index.html">الرئيسية</a> · أدوات المعلم</p>
+      <p><a href="index.html">الرئيسية</a> · أدوات تحضيري العملية</p>
     </footer>
+
     <script src="tools.js"></script>
   </body>
 </html>
