@@ -2,6 +2,8 @@
 .tools-hero h1 { max-width:880px; margin-bottom:14px; font-size:clamp(40px,5.2vw,64px); letter-spacing:-1px; line-height:1.38; }
 .tools-hero h1 span { color:var(--accent); }
 .tools-hero p:not(.eyebrow) { max-width:780px; color:var(--muted); font-size:17px; line-height:1.85; }
+.tools-note { display:flex; max-width:780px; flex-wrap:wrap; gap:8px; margin-top:18px; border:1px solid var(--line); border-radius:14px; background:#fff; color:var(--muted); font-size:13px; font-weight:800; padding:12px 14px; }
+.tools-note strong { color:var(--mint-dark); }
 .tools-search { display:flex; max-width:760px; align-items:center; gap:9px; margin-top:24px; border:1px solid var(--line); border-radius:14px; background:#fff; padding:8px 12px; }
 .tools-search span { color:var(--mint); font-size:12px; font-weight:900; }
 .tools-search input { flex:1; min-width:0; border:0; outline:0; color:var(--ink); padding:8px 0; }
@@ -22,6 +24,8 @@
 .tool-status.external { background:var(--rose-soft); color:var(--rose); }
 .tool-card h2 { margin:0 0 7px; font-size:17px; letter-spacing:0; }
 .tool-card p { margin-bottom:10px; color:var(--muted); font-size:12px; font-weight:600; line-height:1.75; }
+.tool-flow { display:flex; grid-column:1 / -1; flex-wrap:wrap; gap:6px; margin:0 0 2px; padding:0; list-style:none; }
+.tool-flow li { border:1px solid var(--line); border-radius:999px; background:var(--mist); color:var(--muted); font-size:10px; font-weight:900; padding:6px 8px; }
 .tool-card a, .tool-card button { grid-column:1 / -1; width:max-content; border:0; border-radius:9px; background:var(--mint-soft); color:var(--mint-dark); font-size:11px; font-weight:900; padding:9px 12px; }
 .tool-card button { opacity:.78; }
 .empty-tools { color:var(--muted); font-weight:800; text-align:center; }
