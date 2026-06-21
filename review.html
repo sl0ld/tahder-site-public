@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f6f8">
+    <title>المراجعة والتقارير | تحضيري</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=site-unified-1">
+    <link rel="stylesheet" href="review.css?v=site-unified-1">
+  </head>
+  <body class="home-redesign app-page review-page">
+    <div class="page-shell review-shell">
+      <header class="site-header clean-header">
+        <a class="brand" href="index.html" aria-label="تحضيري">
+          <span class="brand-mark">ت</span>
+          <span>
+            <strong>تحضيري</strong>
+            <small>مراجعة المعلم</small>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="التنقل الرئيسي">
+          <a href="index.html">الرئيسية</a>
+          <a href="tools.html">الأدوات</a>
+          <a class="active-link" href="review.html">المراجعة</a>
+          <a href="admin.html" data-admin-link hidden>الأدمن</a>
+        </nav>
+        <div class="header-actions">
+          <button class="outline-button" id="review-login" type="button">تسجيل الدخول</button>
+        </div>
+      </header>
+
+      <main class="review-main">
+        <section class="review-hero">
+          <div>
+            <p class="eyebrow">Teacher Workspace</p>
+            <h1>مراجعة الدرس وتجهيز المخرجات</h1>
+            <p>اختر درساً سابقاً، عدّل الدرس الحالي، ثم أنشئ واجباً أو اختباراً بمساعدة الذكاء الاصطناعي.</p>
+          </div>
+          <div class="review-hero-panel">
+            <span>حالة الصفحة</span>
+            <strong id="review-status">جاهز للمراجعة</strong>
+          </div>
+        </section>
+
+        <section class="review-quickbar" id="review-quickbar" aria-label="خطوات المراجعة" hidden>
+          <div>
+            <b>1</b>
+            <span>اختر التحضير</span>
+            <small>من بنك التحاضير</small>
+          </div>
+          <div>
+            <b>2</b>
+            <span>راجع الحقول</span>
+            <small>أهداف، وسائل، واجب</small>
+          </div>
+          <div>
+            <b>3</b>
+            <span>صدّر الناتج</span>
+            <small>واجب، اختبار، تقرير</small>
+          </div>
+        </section>
+
+        <section class="review-locked" id="review-locked" hidden>
+          <div class="review-card locked-card">
+            <p class="eyebrow">تسجيل الدخول مطلوب</p>
+            <h2>صفحة المراجعة خاصة بحساب المعلم.</h2>
+            <p>سجل الدخول أولاً حتى تظهر تحاضيرك ومحتواك المحفوظ. لن يتم عرض أي مسودة أو تقرير قبل التحقق من الحساب.</p>
+            <a class="primary-button" href="index.html#account">تسجيل الدخول</a>
+          </div>
+        </section>
+
+        <section class="review-layout" id="review-layout" hidden>
+          <aside class="review-sidebar">
+            <div class="review-card account-panel">
+              <span>حساب المعلم</span>
+              <strong id="review-account">غير مسجل</strong>
+              <small id="review-account-hint">سجل الدخول لعرض بنك التحاضير المحفوظ.</small>
+            </div>
+
+            <div class="review-card source-card">
+              <span>مصدر المحتوى</span>
+              <strong id="source-title">منصة مدرستي</strong>
+              <a class="soft-button" id="source-link" href="https://schools.madrasati.sa/?Language=1" target="_blank" rel="noreferrer">الرجوع للمصدر</a>
+            </div>
+
+            <div class="review-card lesson-history-card">
+              <div class="section-title">
+                <span>Lesson History</span>
+                <button class="soft-button compact-button" id="reload-preparations" type="button">تحديث</button>
+              </div>
+              <div class="prep-list" id="preparation-list"></div>
+            </div>
+          </aside>
+
+          <section class="review-workspace">
+            <div class="review-card editor-card">
+              <div class="editor-head">
+                <div>
+                  <p class="eyebrow">Current Lesson</p>
+                  <h2 id="editor-title">مسودة تحضير جاهزة للمراجعة</h2>
+                </div>
+                <div class="editor-actions">
+                  <button class="soft-button" data-mode="preparation" type="button">تحضير</button>
+                  <button class="soft-button" data-mode="assignment" type="button">واجب</button>
+                  <button class="soft-button" data-mode="quiz" type="button">اختبار</button>
+                  <button class="soft-button" data-mode="report" type="button">تقرير PDF</button>
+                </div>
+              </div>
+
+              <div class="meta-grid">
+                <label>
+                  <span>عنوان الدرس</span>
+                  <input id="lesson-title" type="text" value="نص الاستماع: التعاون">
+                </label>
+                <label>
+                  <span>المادة</span>
+                  <input id="lesson-subject" type="text" value="لغتي">
+                </label>
+                <label>
+                  <span>الصف</span>
+                  <input id="lesson-grade" type="text" value="الخامس ابتدائي">
+                </label>
+                <label>
+                  <span>الفصل</span>
+                  <input id="lesson-term" type="text" value="الفصل الثاني">
+                </label>
+              </div>
+
+              <div class="content-grid" id="content-fields">
+                <label>
+                  <span>أهداف الدرس</span>
+                  <textarea data-field="objectives" rows="4"></textarea>
+                </label>
+                <label>
+                  <span>استراتيجيات التعلم</span>
+                  <textarea data-field="strategies" rows="4"></textarea>
+                </label>
+                <label>
+                  <span>الوسائل والمصادر</span>
+                  <textarea data-field="resources" rows="4"></textarea>
+                </label>
+                <label>
+                  <span>إغلاق الدرس</span>
+                  <textarea data-field="closure" rows="4"></textarea>
+                </label>
+                <label>
+                  <span>الإثراء</span>
+                  <textarea data-field="enrichment" rows="4"></textarea>
+                </label>
+                <label>
+                  <span>الواجب</span>
+                  <textarea data-field="assignment" rows="4"></textarea>
+                </label>
+              </div>
+
+              <div class="primary-row">
+                <button class="primary-button" id="save-draft" type="button">حفظ التعديلات</button>
+                <button class="outline-button" id="copy-content" type="button">نسخ المحتوى</button>
+                <button class="soft-button" id="open-source" type="button">فتح مدرستي</button>
+              </div>
+            </div>
+
+            <div class="review-card output-card">
+              <div class="section-title">
+                <span>Quizzes & Homework</span>
+                <small>أنشئ واجباً أو اختباراً من الدرس الحالي.</small>
+              </div>
+              <div class="output-tabs">
+                <button class="active" data-output="assignment" type="button">واجب</button>
+                <button data-output="quiz" type="button">اختبار</button>
+                <button data-output="report" type="button">تقرير إنجاز</button>
+              </div>
+              <textarea id="generated-output" rows="9"></textarea>
+              <div class="primary-row">
+                <button class="primary-button" id="generate-output" type="button">توليد من المحتوى</button>
+                <button class="outline-button" id="download-report" type="button">تحميل PDF</button>
+              </div>
+            </div>
+
+            <div class="review-card ai-assistant-card">
+              <div class="ai-assistant-head">
+                <div>
+                  <span>AI Assistant</span>
+                  <strong>مساعد التحضير</strong>
+                </div>
+                <button class="soft-button compact-button" id="ai-suggest" type="button">اقترح</button>
+              </div>
+              <div class="ai-chat" id="ai-chat">
+                <div class="ai-message assistant">
+                  <b>تحضيري AI</b>
+                  <p>اسألني عن نشاط، صياغة هدف، واجب، اختبار، أو تحسين التحضير الحالي.</p>
+                </div>
+              </div>
+              <form class="ai-prompt-row" id="ai-prompt-form">
+                <input id="ai-prompt" type="text" placeholder="اكتب طلبك هنا...">
+                <button class="primary-button" type="submit">إرسال</button>
+              </form>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="supabase-client.js"></script>
+    <script src="review.js?v=local-session-fix-1"></script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-(function (global) {
+﻿(function (global) {
   const config = global.TAHDER_CONFIG || {};
   const authKey = 'tahder-site-auth';
 
@@ -33,7 +33,7 @@
     });
     const body = await parseResponse(response);
 
-    if (!response.ok) throw new Error(body?.error_description || body?.message || body?.error || 'تعذر الاتصال بالخادم.');
+    if (!response.ok) throw new Error(body?.error_description || body?.message || body?.msg || body?.error || 'تعذر الاتصال بالخادم.');
     return body;
   }
 
@@ -49,6 +49,43 @@
     } catch {
       return { message: text };
     }
+  }
+
+  function safeStorageName(name) {
+    return String(name || 'book.pdf')
+      .trim()
+      .replace(/[\\/:*?"<>|]+/g, '-')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '')
+      || 'book.pdf';
+  }
+
+  async function uploadBookPdf(file, session = readSession()) {
+    if (!isConfigured()) throw new Error('أضف بيانات Supabase في ملف config.js أولاً.');
+    if (!session?.access_token) throw new Error('سجل دخول الأدمن قبل رفع الملفات.');
+    if (!file || file.type !== 'application/pdf') throw new Error('اختر ملف PDF صحيح.');
+
+    const bucket = config.booksBucket || 'curriculum-books';
+    const path = `books/${Date.now()}-${safeStorageName(file.name)}`;
+    const response = await fetch(`${config.supabaseUrl}/storage/v1/object/${bucket}/${path}`, {
+      method: 'POST',
+      headers: {
+        apikey: config.publishableKey,
+        Authorization: `Bearer ${session.access_token}`,
+        'Content-Type': 'application/pdf',
+        'x-upsert': 'false',
+      },
+      body: file,
+    });
+    const body = await parseResponse(response);
+
+    if (!response.ok) throw new Error(body?.message || body?.error || 'تعذر رفع ملف PDF.');
+
+    return {
+      path,
+      url: encodeURI(`${config.supabaseUrl}/storage/v1/object/public/${bucket}/${path}`),
+    };
   }
 
   async function signIn(email, password) {
@@ -97,6 +134,25 @@
     clearSession();
   }
 
+  async function createTrialSubscription(session) {
+    const startsAt = new Date();
+    const endsAt = new Date(startsAt);
+    endsAt.setDate(endsAt.getDate() + 14);
+
+    return request('/rest/v1/subscriptions?select=id,plan_id,status,starts_at,ends_at', {
+      method: 'POST',
+      headers: { Prefer: 'return=representation' },
+      body: JSON.stringify({
+        user_id: session.user.id,
+        plan_id: 'trial',
+        status: 'trial',
+        starts_at: startsAt.toISOString(),
+        ends_at: endsAt.toISOString(),
+      }),
+      session,
+    });
+  }
+
   async function getActiveSubscription(session) {
     const subscriptions = await request('/rest/v1/subscriptions?select=id,plan_id,status,starts_at,ends_at&order=created_at.desc', { session });
     const now = Date.now();
@@ -109,7 +165,7 @@
   }
 
   async function listPreparations(session = readSession()) {
-    return request('/rest/v1/preparations?select=id,lesson_title,subject,grade,term,status,source,created_at&order=created_at.desc&limit=20', { session });
+    return request('/rest/v1/preparations?select=id,lesson_title,subject,grade,term,content,status,source,created_at&order=created_at.desc&limit=20', { session });
   }
 
   async function listLinkedDevices(session = readSession()) {
@@ -125,8 +181,80 @@
     });
   }
 
+  async function isAdmin(session = readSession()) {
+    return request('/rest/v1/rpc/is_admin', {
+      method: 'POST',
+      body: JSON.stringify({}),
+      session,
+    });
+  }
+
+  async function adminListAccounts(session = readSession()) {
+    return request('/rest/v1/rpc/admin_list_accounts', {
+      method: 'POST',
+      body: JSON.stringify({}),
+      session,
+    });
+  }
+
+  async function adminListBooks(session = readSession()) {
+    return request('/rest/v1/rpc/admin_list_books', {
+      method: 'POST',
+      body: JSON.stringify({}),
+      session,
+    });
+  }
+
+  async function adminCreateBook(book, session = readSession()) {
+    return request('/rest/v1/rpc/admin_create_book', {
+      method: 'POST',
+      body: JSON.stringify({
+        book_title: book.title,
+        book_subject: book.subject,
+        book_grade: book.grade,
+        book_term: book.term,
+        book_academic_year: book.academicYear,
+        book_pdf_url: book.pdfUrl,
+        book_lessons: book.lessons,
+        book_status: book.status,
+      }),
+      session,
+    });
+  }
+
+  async function adminGetAiSettings(session = readSession()) {
+    return request('/rest/v1/rpc/admin_get_ai_settings', {
+      method: 'POST',
+      body: JSON.stringify({}),
+      session,
+    });
+  }
+
+  async function adminSaveAiSettings(settings, session = readSession()) {
+    return request('/rest/v1/rpc/admin_save_ai_settings', {
+      method: 'POST',
+      body: JSON.stringify({
+        ai_provider: settings.provider,
+        ai_model: settings.model,
+        ai_api_key: settings.apiKey,
+        ai_system_prompt: settings.systemPrompt,
+        ai_temperature: settings.temperature,
+        ai_is_enabled: settings.isEnabled,
+      }),
+      session,
+    });
+  }
+
   global.TahderSupabase = {
+    adminCreateBook,
+    adminGetAiSettings,
+    adminListAccounts,
+    adminListBooks,
+    adminSaveAiSettings,
+    createTrialSubscription,
+    uploadBookPdf,
     getActiveSubscription,
+    isAdmin,
     isConfigured,
     listLinkedDevices,
     listPreparations,

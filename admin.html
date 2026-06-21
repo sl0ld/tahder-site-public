@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f6f8">
+    <title>لوحة الأدمن | تحضيري</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=site-unified-1">
+    <link rel="stylesheet" href="admin.css?v=site-unified-1">
+  </head>
+  <body class="home-redesign app-page admin-page">
+    <div class="page-shell admin-shell">
+      <header class="site-header clean-header admin-topbar">
+        <a class="brand" href="index.html" aria-label="تحضيري">
+          <span class="brand-mark">ت</span>
+          <span>
+            <strong>تحضيري</strong>
+            <small>لوحة التحكم</small>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="التنقل">
+          <a href="index.html">الرئيسية</a>
+          <a href="tools.html">الأدوات</a>
+          <a href="admin.html" class="active-link">الأدمن</a>
+        </nav>
+        <div class="header-actions">
+          <button class="outline-button" id="admin-logout" type="button" hidden>تسجيل الخروج</button>
+        </div>
+      </header>
+
+      <main class="admin-main">
+        <section class="admin-login-card" id="admin-login-card" hidden>
+          <div class="login-copy">
+            <p class="eyebrow">دخول محمي</p>
+            <h1>لوحة الإدارة تظهر للأدمن فقط.</h1>
+            <p>من هنا تدير اشتراكات المعلمين، كتب المنهج، وإعدادات الذكاء الاصطناعي التي تستخدمها الإضافة أثناء التحضير.</p>
+            <div class="login-badges">
+              <span>حسابات</span>
+              <span>مناهج</span>
+              <span>AI</span>
+            </div>
+          </div>
+          <form id="admin-login-form">
+            <p class="admin-error" id="admin-login-error" hidden></p>
+            <label>
+              <span>البريد الإلكتروني</span>
+              <input name="email" type="email" placeholder="admin@tahder.sa" required>
+            </label>
+            <label>
+              <span>كلمة المرور</span>
+              <input name="password" type="password" placeholder="••••••••" required>
+            </label>
+            <button class="primary-button full-button" type="submit">تسجيل الدخول</button>
+          </form>
+        </section>
+
+        <section class="admin-dashboard" id="admin-dashboard" hidden>
+          <aside class="admin-sidebar" aria-label="اختصارات لوحة الأدمن">
+            <div class="sidebar-brand">
+              <span>ت</span>
+              <div>
+                <strong>تحضيري</strong>
+                <small>Admin</small>
+              </div>
+            </div>
+            <a href="#ai-settings">إعدادات AI</a>
+            <a href="#books-create">إضافة كتاب</a>
+            <a href="#books-list">الكتب</a>
+            <a href="#accounts-list">الحسابات</a>
+            <div class="sidebar-note">
+              <b>هدف اللوحة</b>
+              <span>كل شيء يخدم الإكستنشن: حساب فعال، منهج جاهز، وتوليد أسرع.</span>
+            </div>
+          </aside>
+
+          <div class="admin-workspace">
+            <section class="admin-hero" id="admin-hero" hidden>
+              <div>
+                <p class="eyebrow">إدارة النظام</p>
+                <h1>لوحة تشغيل تحضيري</h1>
+                <p>راقب الحسابات، أضف الكتب، واضبط التوليد الذكي من مكان واحد قبل تجربة الإضافة داخل منصة مدرستي.</p>
+              </div>
+              <div class="admin-status" id="admin-status">جاري التحقق من الصلاحية...</div>
+            </section>
+
+            <section class="admin-stats" aria-label="ملخص سريع">
+              <article>
+                <span>حسابات فعالة</span>
+                <strong id="active-count">0</strong>
+                <small>جاهزة لاستخدام الإضافة</small>
+              </article>
+              <article>
+                <span>غير فعالة</span>
+                <strong id="inactive-count">0</strong>
+                <small>تحتاج اشتراك أو مراجعة</small>
+              </article>
+              <article>
+                <span>كتب المنهج</span>
+                <strong id="books-count">0</strong>
+                <small>مرجع التوليد القادم</small>
+              </article>
+            </section>
+
+            <div class="admin-layout">
+              <section class="admin-card priority-card" id="ai-settings">
+                <div class="admin-card-head">
+                  <div>
+                    <p class="eyebrow">الذكاء الاصطناعي</p>
+                    <h2>إدارة التوكنات والتوليد</h2>
+                  </div>
+                  <small>التوكن لا يظهر بعد الحفظ، ويستخدمه السيرفر فقط.</small>
+                </div>
+                <form class="ai-form" id="ai-form">
+                  <p class="admin-error" id="ai-error" hidden></p>
+                  <p class="admin-success" id="ai-success" hidden></p>
+                  <label>
+                    <span>مزود AI</span>
+                    <select name="provider" required>
+                      <option value="gemini">Gemini</option>
+                      <option value="openai">OpenAI</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>الموديل</span>
+                    <input name="model" type="text" placeholder="gemini-2.5-flash" required>
+                  </label>
+                  <label>
+                    <span>توكن جديد</span>
+                    <input name="apiKey" type="password" placeholder="اتركه فارغاً إذا لا تريد تغييره">
+                  </label>
+                  <label>
+                    <span>درجة الإبداع</span>
+                    <input name="temperature" type="number" min="0" max="1" step="0.05" value="0.35">
+                  </label>
+                  <label class="wide-field">
+                    <span>رسالة النظام</span>
+                    <textarea name="systemPrompt" rows="4" placeholder="اكتب تعليمات التوليد الأساسية..."></textarea>
+                  </label>
+                  <label class="admin-switch wide-field">
+                    <input name="isEnabled" type="checkbox" checked>
+                    <span>تفعيل التوليد التلقائي للتحضير</span>
+                  </label>
+                  <div class="ai-meta wide-field" id="ai-meta">جاري تحميل إعدادات AI...</div>
+                  <button class="primary-button full-button" type="submit">حفظ إعدادات AI</button>
+                </form>
+              </section>
+
+              <section class="admin-card" id="books-create">
+                <div class="admin-card-head">
+                  <div>
+                    <p class="eyebrow">المناهج</p>
+                    <h2>إضافة كتاب جديد</h2>
+                  </div>
+                  <small>حالياً نضيف رابط PDF والدروس، والرفع المباشر لاحقاً.</small>
+                </div>
+                <form class="book-form" id="book-form">
+                  <p class="admin-error" id="book-error" hidden></p>
+                  <p class="admin-success" id="book-success" hidden></p>
+                  <label>
+                    <span>عنوان الكتاب</span>
+                    <input name="title" type="text" placeholder="لغتي الجميلة - خامس ابتدائي" required>
+                  </label>
+                  <label>
+                    <span>المادة</span>
+                    <input name="subject" type="text" placeholder="لغتي" required>
+                  </label>
+                  <label>
+                    <span>الصف</span>
+                    <input name="grade" type="text" placeholder="الخامس ابتدائي" required>
+                  </label>
+                  <label>
+                    <span>الفصل الدراسي</span>
+                    <input name="term" type="text" placeholder="الفصل الثاني" required>
+                  </label>
+                  <label>
+                    <span>السنة الدراسية</span>
+                    <input name="academicYear" type="text" placeholder="1447">
+                  </label>
+                  <label class="wide-field upload-field">
+                    <span>رفع ملفات PDF</span>
+                    <input id="book-pdf-files" name="pdfFiles" type="file" accept="application/pdf,.pdf" multiple>
+                    <strong>اختر ملفاً واحداً أو عدة ملفات PDF من نفس الفولدر وسيتم حفظ الروابط تلقائياً</strong>
+                    <small id="book-upload-summary">لم يتم اختيار ملفات بعد.</small>
+                  </label>
+                  <label>
+                    <span>رابط PDF احتياطي</span>
+                    <input name="pdfUrl" type="url" placeholder="https://...">
+                  </label>
+                  <label class="wide-field">
+                    <span>الدروس</span>
+                    <textarea name="lessons" rows="5" placeholder="اكتب كل درس في سطر مستقل&#10;مثال: نص الاستماع: التعاون&#10;الحنين إلى الوطن"></textarea>
+                  </label>
+                  <button class="primary-button full-button" type="submit">إضافة الكتاب</button>
+                </form>
+              </section>
+            </div>
+
+            <section class="admin-card" id="books-list">
+              <div class="admin-card-head">
+                <div>
+                  <p class="eyebrow">الكتب الحالية</p>
+                  <h2>قائمة الكتب</h2>
+                </div>
+                <button class="soft-button" id="refresh-books" type="button">تحديث</button>
+              </div>
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>الكتاب</th>
+                      <th>المادة</th>
+                      <th>الصف</th>
+                      <th>الفصل</th>
+                      <th>الدروس</th>
+                      <th>الحالة</th>
+                    </tr>
+                  </thead>
+                  <tbody id="books-table"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="admin-card" id="accounts-list">
+              <div class="admin-card-head">
+                <div>
+                  <p class="eyebrow">الحسابات</p>
+                  <h2>المستخدمون والاشتراكات</h2>
+                </div>
+                <button class="soft-button" id="refresh-accounts" type="button">تحديث</button>
+              </div>
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>البريد</th>
+                      <th>الاسم</th>
+                      <th>الجوال</th>
+                      <th>الخطة</th>
+                      <th>الحالة</th>
+                      <th>ينتهي في</th>
+                    </tr>
+                  </thead>
+                  <tbody id="accounts-table"></tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="supabase-client.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

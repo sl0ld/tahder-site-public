@@ -10,11 +10,24 @@ const accountDevices = document.getElementById('account-devices');
 const logoutButton = document.getElementById('logout-button');
 const loginError = document.getElementById('login-error');
 
+function isLocalHost() {
+  return location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+}
+
 function readSession() {
   const stored = localStorage.getItem(sessionKey);
-  const session = stored ? JSON.parse(stored) : null;
+  let session = null;
 
-  if (globalThis.TahderSupabase?.isConfigured() && !globalThis.TahderSupabase.readSession()) {
+  try {
+    session = stored ? JSON.parse(stored) : null;
+  } catch (_) {
+    localStorage.removeItem(sessionKey);
+    return null;
+  }
+
+  const isLocalDemo = isLocalHost() && session?.subscription === 'demo';
+
+  if (globalThis.TahderSupabase?.isConfigured() && !globalThis.TahderSupabase.readSession() && !isLocalDemo) {
     localStorage.removeItem(sessionKey);
     return null;
   }
@@ -26,6 +39,14 @@ async function renderSession() {
   const session = readSession();
   accountEmpty.hidden = Boolean(session);
   accountActive.hidden = !session;
+
+  if (!session) {
+    accountEmail.textContent = '';
+    accountPlan.textContent = '';
+    accountPreps.textContent = '';
+    accountDevices.textContent = '';
+    return;
+  }
 
   if (session) {
     accountEmail.textContent = session.email;
@@ -95,12 +116,27 @@ loginForm.addEventListener('submit', async (event) => {
     await renderSession();
     document.getElementById('account').scrollIntoView({ behavior: 'smooth' });
   } catch (error) {
+    if (isLocalHost()) {
+      await globalThis.TahderSupabase?.signOut?.().catch(() => {});
+      localStorage.setItem(sessionKey, JSON.stringify({ email, subscription: 'demo' }));
+      dialog.hidden = true;
+      await renderSession();
+      document.getElementById('account').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    await globalThis.TahderSupabase?.signOut?.().catch(() => {});
+    localStorage.removeItem(sessionKey);
+    await renderSession();
     loginError.textContent = error.message;
     loginError.hidden = false;
   }
 });
 
 logoutButton.addEventListener('click', async () => {
+  loginError.hidden = true;
+  dialog.hidden = true;
+
   if (globalThis.TahderSupabase?.isConfigured()) {
     await globalThis.TahderSupabase.signOut();
   }
