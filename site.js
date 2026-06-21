@@ -11,7 +11,9 @@ const logoutButton = document.getElementById('logout-button');
 const loginError = document.getElementById('login-error');
 
 function isLocalHost() {
-  return location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  return location.hostname === 'localhost'
+    || location.hostname === '127.0.0.1'
+    || location.hostname === '127.0.0.1.nip.io';
 }
 
 function readSession() {
