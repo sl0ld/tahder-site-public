@@ -6,9 +6,59 @@ const accountActive = document.getElementById('account-active');
 const accountEmail = document.getElementById('account-email');
 const accountPlan = document.getElementById('account-plan');
 const accountPreps = document.getElementById('account-preps');
-const accountDevices = document.getElementById('account-devices');
+const accountIdentity = document.getElementById('account-devices');
+const accountDevices = accountIdentity;
 const logoutButton = document.getElementById('logout-button');
 const loginError = document.getElementById('login-error');
+const siteHeader = document.querySelector('.clean-header');
+const navToggle = document.querySelector('.nav-toggle');
+const primaryNav = document.getElementById('primary-nav');
+const navBackdrop = document.querySelector('[data-nav-close]');
+
+function setMobileNav(open) {
+  if (!siteHeader || !navToggle || !primaryNav) return;
+
+  siteHeader.classList.toggle('is-menu-open', open);
+  navToggle.setAttribute('aria-expanded', String(open));
+  navToggle.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
+  if (navBackdrop) navBackdrop.hidden = !open;
+  document.body.classList.toggle('nav-open', open);
+}
+
+navToggle?.addEventListener('click', () => {
+  setMobileNav(!siteHeader?.classList.contains('is-menu-open'));
+});
+
+navBackdrop?.addEventListener('click', () => setMobileNav(false));
+
+primaryNav?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const href = link.getAttribute('href');
+    setMobileNav(false);
+
+    if (!href) return;
+
+    if (href.startsWith('#')) {
+      const target = document.querySelector(href);
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.pushState(null, '', href);
+      return;
+    }
+
+    event.preventDefault();
+    window.location.href = href;
+  });
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') setMobileNav(false);
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768) setMobileNav(false);
+});
 
 function isLocalHost() {
   return location.hostname === 'localhost'
@@ -29,12 +79,31 @@ function readSession() {
 
   const isLocalDemo = isLocalHost() && session?.subscription === 'demo';
 
-  if (globalThis.TahderSupabase?.isConfigured() && !globalThis.TahderSupabase.readSession() && !isLocalDemo) {
+  if (globalThis.TahderApi?.isConfigured() && !globalThis.TahderApi.readSession() && !isLocalDemo) {
     localStorage.removeItem(sessionKey);
     return null;
   }
 
   return session;
+}
+
+async function ensureSignupSubscription(authSession) {
+  let subscription = await globalThis.TahderApi.getActiveSubscription(authSession);
+  if (subscription) return subscription;
+
+  const selectedPlanId = authSession.user?.user_metadata?.selected_plan || 'trial';
+
+  if (!globalThis.TahderApi.activateSignupSubscription) {
+    return null;
+  }
+
+  try {
+    const rows = await globalThis.TahderApi.activateSignupSubscription(selectedPlanId, authSession);
+    subscription = Array.isArray(rows) ? rows[0] : rows;
+    return subscription || null;
+  } catch (_) {
+    return null;
+  }
 }
 
 async function renderSession() {
@@ -46,7 +115,7 @@ async function renderSession() {
     accountEmail.textContent = '';
     accountPlan.textContent = '';
     accountPreps.textContent = '';
-    accountDevices.textContent = '';
+    accountIdentity.textContent = '';
     return;
   }
 
@@ -56,16 +125,16 @@ async function renderSession() {
     accountPreps.textContent = 'بنك التحاضير: جار التحديث';
     accountDevices.textContent = 'الأجهزة المرتبطة: جار التحديث';
 
-    if (globalThis.TahderSupabase?.isConfigured()) {
+    if (globalThis.TahderApi?.isConfigured()) {
       try {
-        const preparations = await globalThis.TahderSupabase.listPreparations();
+        const preparations = await globalThis.TahderApi.listPreparations();
         accountPreps.textContent = `بنك التحاضير: ${preparations.length} تحضير`;
       } catch (_) {
         accountPreps.textContent = 'بنك التحاضير: تعذر التحديث';
       }
 
       try {
-        const devices = await globalThis.TahderSupabase.listLinkedDevices();
+        const devices = await globalThis.TahderApi.listLinkedDevices();
         const activeDevices = devices.filter((device) => device.is_active);
         const latestDevice = activeDevices[0] || devices[0];
         const latestText = latestDevice?.last_seen_at
@@ -75,6 +144,7 @@ async function renderSession() {
       } catch (_) {
         accountDevices.textContent = 'الأجهزة المرتبطة: تعذر التحديث';
       }
+      accountIdentity.textContent = 'تحقق مدرستي: الحساب يعمل فقط مع نفس المعلم داخل المنصة';
     }
   }
 }
@@ -97,16 +167,16 @@ loginForm.addEventListener('submit', async (event) => {
   loginError.hidden = true;
 
   try {
-    if (globalThis.TahderSupabase?.isConfigured()) {
-      const authSession = await globalThis.TahderSupabase.signIn(email, password);
-      const subscription = await globalThis.TahderSupabase.getActiveSubscription(authSession);
+    if (globalThis.TahderApi?.isConfigured()) {
+      const authSession = await globalThis.TahderApi.signIn(email, password);
+      const subscription = await ensureSignupSubscription(authSession);
 
       if (!subscription) {
-        await globalThis.TahderSupabase.signOut();
+        await globalThis.TahderApi.signOut();
         throw new Error('الحساب صحيح، لكنه لا يملك اشتراكاً فعالاً حالياً.');
       }
 
-      await globalThis.TahderSupabase.recordActivity(authSession, 'site_login');
+      await globalThis.TahderApi.recordActivity(authSession, 'site_login');
       localStorage.setItem(sessionKey, JSON.stringify({ email, subscription: subscription.status }));
     } else if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
       localStorage.setItem(sessionKey, JSON.stringify({ email, subscription: 'demo' }));
@@ -119,7 +189,7 @@ loginForm.addEventListener('submit', async (event) => {
     document.getElementById('account').scrollIntoView({ behavior: 'smooth' });
   } catch (error) {
     if (isLocalHost()) {
-      await globalThis.TahderSupabase?.signOut?.().catch(() => {});
+      await globalThis.TahderApi?.signOut?.().catch(() => {});
       localStorage.setItem(sessionKey, JSON.stringify({ email, subscription: 'demo' }));
       dialog.hidden = true;
       await renderSession();
@@ -127,7 +197,7 @@ loginForm.addEventListener('submit', async (event) => {
       return;
     }
 
-    await globalThis.TahderSupabase?.signOut?.().catch(() => {});
+    await globalThis.TahderApi?.signOut?.().catch(() => {});
     localStorage.removeItem(sessionKey);
     await renderSession();
     loginError.textContent = error.message;
@@ -139,8 +209,8 @@ logoutButton.addEventListener('click', async () => {
   loginError.hidden = true;
   dialog.hidden = true;
 
-  if (globalThis.TahderSupabase?.isConfigured()) {
-    await globalThis.TahderSupabase.signOut();
+  if (globalThis.TahderApi?.isConfigured()) {
+    await globalThis.TahderApi.signOut();
   }
   localStorage.removeItem(sessionKey);
   await renderSession();

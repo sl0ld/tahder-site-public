@@ -34,6 +34,8 @@ const fieldFallbacks = {
 
 const account = document.getElementById('review-account');
 const accountHint = document.getElementById('review-account-hint');
+const subscriptionPanel = document.getElementById('review-subscription');
+const subscriptionStatus = document.getElementById('review-subscription-status');
 const status = document.getElementById('review-status');
 const locked = document.getElementById('review-locked');
 const layout = document.getElementById('review-layout');
@@ -68,7 +70,7 @@ function setStatus(text) {
 }
 
 function getAuthSession() {
-  return globalThis.TahderSupabase?.readSession?.() || null;
+  return globalThis.TahderApi?.readSession?.() || null;
 }
 
 function isLocalHost() {
@@ -81,12 +83,40 @@ function hasLocalSiteSession(siteSession) {
   return isLocalHost() && Boolean(siteSession?.email && siteSession?.subscription);
 }
 
+function subscriptionLabel(subscription, siteSession) {
+  const subscriptionState = subscription?.status || siteSession?.subscription || '';
+
+  if (subscriptionState === 'trial') return '\u062a\u062c\u0631\u0628\u0629';
+  if (subscriptionState === 'active') return '\u0646\u0634\u0637';
+  if (subscriptionState === 'past_due') return '\u064a\u062d\u062a\u0627\u062c \u0645\u0631\u0627\u062c\u0639\u0629';
+  if (subscriptionState === 'cancelled') return '\u0645\u0644\u063a\u064a';
+  return '\u0645\u0646\u062a\u0647\u064a';
+}
+
+function renderSubscription(subscription, siteSession) {
+  if (!subscriptionPanel || !subscriptionStatus) return;
+
+  const rawStatus = subscription?.status || siteSession?.subscription || 'expired';
+  subscriptionPanel.hidden = false;
+  subscriptionPanel.dataset.status = rawStatus;
+  subscriptionStatus.textContent = `\u062d\u0627\u0644\u0629 \u0627\u0644\u0627\u0634\u062a\u0631\u0627\u0643: ${subscriptionLabel(subscription, siteSession)}`;
+}
+
+function hideSubscription() {
+  if (!subscriptionPanel || !subscriptionStatus) return;
+
+  subscriptionPanel.hidden = true;
+  subscriptionPanel.dataset.status = '';
+  subscriptionStatus.textContent = '';
+}
+
 function showLocalReview(siteSession) {
   showReview();
   state.preparations = [samplePreparation];
   state.selected = samplePreparation;
   account.textContent = siteSession.email;
   accountHint.textContent = '\u0648\u0636\u0639 \u0627\u0644\u062a\u062c\u0631\u0628\u0629 \u0627\u0644\u0645\u062d\u0644\u064a\u0629: \u064a\u062a\u0645 \u0639\u0631\u0636 \u062a\u062d\u0636\u064a\u0631 \u062a\u062c\u0631\u064a\u0628\u064a \u0644\u0644\u0645\u0631\u0627\u062c\u0639\u0629.';
+  renderSubscription(null, siteSession);
   renderList();
   renderEditor(state.selected);
   setStatus('\u0648\u0636\u0639 \u0627\u0644\u062a\u062c\u0631\u0628\u0629 \u0627\u0644\u0645\u062d\u0644\u064a\u0629');
@@ -98,6 +128,7 @@ function showLocked() {
   quickbar.hidden = true;
   account.textContent = 'غير مسجل';
   accountHint.textContent = 'سجل الدخول لفتح صفحة المراجعة.';
+  hideSubscription();
   setStatus('تسجيل الدخول مطلوب');
 }
 
@@ -170,8 +201,17 @@ async function loadPreparations() {
   showReview();
   account.textContent = siteSession?.email || session.user?.email || 'حساب المعلم';
   accountHint.textContent = 'يعرض آخر التحاضير المحفوظة في حسابك.';
+  let subscription = null;
 
-  if (!globalThis.TahderSupabase?.isConfigured()) {
+  try {
+    subscription = await globalThis.TahderApi?.getActiveSubscription?.(session);
+  } catch (_) {
+    subscription = null;
+  }
+
+  renderSubscription(subscription, siteSession);
+
+  if (!globalThis.TahderApi?.isConfigured()) {
     state.preparations = [];
     state.selected = null;
     list.innerHTML = '<div class="empty-state">تعذر الاتصال بحساب تحضيري.</div>';
@@ -181,7 +221,7 @@ async function loadPreparations() {
 
   try {
     setStatus('جاري تحميل بنك التحاضير...');
-    const rows = await globalThis.TahderSupabase.listPreparations(session);
+    const rows = await globalThis.TahderApi.listPreparations(session);
     state.preparations = rows.length ? rows.map(normalizePreparation) : [samplePreparation];
     state.selected = state.preparations[0];
     renderList();

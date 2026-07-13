@@ -1,0 +1,545 @@
+.sim-page {
+  min-height: 100vh;
+  background: #eef7f4;
+  color: #123d38;
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  padding: 24px;
+}
+
+.sim-page * {
+  box-sizing: border-box;
+}
+
+.sim-header,
+.sim-layout {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.sim-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid #c8e5df;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 18px 20px;
+  box-shadow: 0 14px 30px rgba(31, 63, 74, 0.08);
+}
+
+.sim-kicker {
+  display: inline-flex;
+  margin-bottom: 6px;
+  color: #087364;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.sim-header h1,
+.sim-card h2 {
+  margin: 0;
+  color: #062f2c;
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+.sim-header p,
+.sim-card p {
+  margin: 6px 0 0;
+  color: #5b746f;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.sim-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sim-header a,
+.sim-sidebar a,
+.sim-breadcrumb a {
+  color: #087364;
+  text-decoration: none;
+}
+
+.sim-header nav a {
+  border: 1px solid #cde6e0;
+  border-radius: 6px;
+  background: #f7fcfb;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 10px 12px;
+}
+
+.sim-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.sim-sidebar {
+  align-self: start;
+  display: grid;
+  gap: 8px;
+  border: 1px solid #c8e5df;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 14px;
+  box-shadow: 0 14px 30px rgba(31, 63, 74, 0.06);
+}
+
+.sim-sidebar strong {
+  margin-bottom: 4px;
+  color: #062f2c;
+  font-size: 15px;
+}
+
+.sim-sidebar a {
+  border-radius: 6px;
+  color: #335955;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 10px 11px;
+}
+
+.sim-sidebar a.is-active,
+.sim-sidebar a:hover {
+  background: #0a927f;
+  color: #ffffff;
+}
+
+.sim-main {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.sim-toolbar,
+.sim-card {
+  border: 1px solid #c8e5df;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 30px rgba(31, 63, 74, 0.06);
+}
+
+.sim-toolbar {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+}
+
+.sim-toolbar button {
+  min-height: 48px;
+  border: 1px solid #cde6e0;
+  border-radius: 8px;
+  background: #f7fcfb;
+  color: #087364;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.sim-toolbar div {
+  display: grid;
+  gap: 4px;
+  min-height: 48px;
+  place-items: center;
+  border: 1px solid #d8ebe7;
+  border-radius: 8px;
+  background: #f7fcfb;
+}
+
+.sim-toolbar span {
+  color: #5b746f;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.sim-toolbar strong {
+  font-size: 16px;
+}
+
+.sim-card {
+  padding: 16px;
+}
+
+.sim-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.sim-card-head button,
+.sim-footer-actions button,
+.sim-actions button,
+.sim-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border: 1px solid #cde6e0;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #123d38;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 9px 14px;
+  text-decoration: none;
+}
+
+.sim-card-head button:hover,
+.sim-footer-actions button:hover,
+.sim-actions button:hover,
+.sim-link-button:hover {
+  border-color: #0a927f;
+  background: #f1faf7;
+}
+
+.sim-week-prep {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.sim-week-prep div {
+  border: 1px solid #d8ebe7;
+  border-radius: 8px;
+  background: #f7fcfb;
+  padding: 12px;
+}
+
+.sim-week-prep b,
+.sim-week-prep span,
+.sim-lesson-link small {
+  display: block;
+  line-height: 1.5;
+}
+
+.sim-week-prep b {
+  color: #087364;
+  font-size: 15px;
+}
+
+.sim-week-prep span,
+.sim-lesson-link small {
+  color: #6d817d;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.sim-schedule-table {
+  overflow-x: auto;
+}
+
+.sim-schedule-table table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+}
+
+.sim-schedule-table th,
+.sim-schedule-table td {
+  border: 1px solid #d8ebe7;
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.sim-schedule-table th {
+  background: #f1faf7;
+  color: #335955;
+  font-size: 12px;
+}
+
+.sim-lesson-link {
+  display: grid;
+  gap: 5px;
+  min-height: 98px;
+  border: 1px solid #a8ddd3;
+  border-radius: 8px;
+  background: #effaf7;
+  color: #123d38;
+  text-decoration: none;
+  padding: 10px;
+  text-align: right;
+}
+
+.sim-lesson-link b,
+.sim-lesson-link span,
+.sim-lesson-link em {
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+}
+
+.sim-lesson-link b {
+  color: #087364;
+  font-size: 13px;
+}
+
+.sim-lesson-link span {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.sim-lesson-link em,
+.sim-empty-slot {
+  color: #6d817d;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.sim-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #5b746f;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.sim-summary-card {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sim-summary-card div {
+  border: 1px solid #d8ebe7;
+  border-radius: 7px;
+  background: #f7fcfb;
+  padding: 11px;
+}
+
+.sim-summary-card span,
+.sim-fieldset span {
+  display: block;
+  color: #5b746f;
+  font-size: 11px;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.sim-summary-card strong {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.sim-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.sim-tabs button {
+  min-height: 38px;
+  border: 1px solid #cde6e0;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #335955;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 8px 12px;
+}
+
+.sim-tabs button.is-active,
+.sim-primary {
+  border-color: #0a927f !important;
+  background: #0a927f !important;
+  color: #ffffff !important;
+}
+
+.sim-fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 14px;
+  border: 1px solid #d8ebe7;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.sim-fieldset legend {
+  color: #087364;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 0 8px;
+}
+
+.sim-wide {
+  grid-column: 1 / -1;
+}
+
+.sim-fieldset input,
+.sim-fieldset textarea,
+.sim-fieldset select {
+  width: 100%;
+  border: 1px solid #cde6e0;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #123d38;
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+  padding: 10px 11px;
+}
+
+.sim-fieldset textarea {
+  min-height: 96px;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.sim-select-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.sim-choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  min-height: 44px;
+  border: 1px solid #d8ebe7;
+  border-radius: 7px;
+  background: #fbfefd;
+  padding: 10px 12px;
+}
+
+.sim-choice-group > span {
+  flex: 0 0 100%;
+}
+
+.sim-choice-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: #123d38;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.sim-choice-group input {
+  width: 18px;
+  height: 18px;
+  accent-color: #0a927f;
+}
+
+.sim-upload-box {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  border: 1px dashed #b7d8d1;
+  border-radius: 8px;
+  background: #fbfefd;
+  padding: 22px 14px;
+  text-align: center;
+}
+
+.sim-upload-box b {
+  color: #123d38;
+  font-size: 15px;
+}
+
+.sim-upload-box p {
+  margin: 0;
+  color: #6d817d;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.sim-upload-box button {
+  min-height: 36px;
+  border: 1px solid #0a927f;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #087364;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 900;
+  padding: 8px 16px;
+}
+
+.sim-actions,
+.sim-footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sim-footer-actions {
+  justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+  .sim-page {
+    padding: 14px;
+  }
+
+  .sim-header,
+  .sim-card-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .sim-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sim-sidebar {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .sim-sidebar strong {
+    display: none;
+  }
+
+  .sim-summary-card,
+  .sim-fieldset,
+  .sim-week-prep {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .sim-header h1,
+  .sim-card h2 {
+    font-size: 20px;
+  }
+
+  .sim-toolbar {
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    padding: 10px;
+  }
+
+  .sim-toolbar button,
+  .sim-toolbar div {
+    min-height: 44px;
+  }
+
+  .sim-toolbar strong {
+    font-size: 13px;
+  }
+
+  .sim-card {
+    padding: 12px;
+  }
+}

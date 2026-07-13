@@ -4,20 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f3f6f8">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <title>تحضيري | مساعد منصة مدرستي</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=buttons-type-3">
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=pricing-section-1">
   </head>
   <body class="home-redesign">
     <div class="page-shell">
       <header class="site-header clean-header">
         <a class="brand" href="#top" aria-label="تحضيري">
-          <span class="brand-mark">ت</span>
+          <span class="brand-mark"><img src="assets/tahder-logo.png" alt="" aria-hidden="true"></span>
           <strong>تحضيري</strong>
         </a>
-        <nav class="nav-links" aria-label="التنقل الرئيسي">
+        <button class="nav-toggle" type="button" aria-label="فتح القائمة" aria-controls="primary-nav" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-links" id="primary-nav" aria-label="التنقل الرئيسي">
           <a href="#features">المميزات</a>
           <a href="tools.html">الأدوات</a>
           <a href="review.html">المراجعة</a>
@@ -28,6 +35,7 @@
           <a class="primary-button dark-button" href="signup.html">إنشاء حساب</a>
         </div>
       </header>
+      <div class="nav-backdrop" data-nav-close hidden></div>
 
       <main id="top">
         <section class="home-hero">
@@ -119,6 +127,48 @@
           </div>
         </section>
 
+        <section class="pricing-section" id="pricing" aria-labelledby="pricing-title">
+          <div class="pricing-heading">
+            <span class="section-kicker">الباقات</span>
+            <h2 id="pricing-title">اختر الاشتراك المناسب لك</h2>
+            <p>ابدأ بتحضيري على نفس حسابك، ثم فعّل الإضافة داخل منصة مدرستي واستخدم التحضير بضغطة واحدة.</p>
+          </div>
+          <div class="pricing-grid">
+            <article class="pricing-card pricing-card-featured">
+              <div class="plan-topline">
+                <span>الأكثر توفيرًا</span>
+                <strong>سنوي</strong>
+              </div>
+              <div class="plan-price">
+                <b>70</b>
+                <span>ريال / سنة</span>
+              </div>
+              <ul>
+                <li>استخدام كامل للإضافة داخل منصة مدرستي</li>
+                <li>تحضير دروس لغتي من بنك التحاضير</li>
+                <li>تحديثات وتحسينات مستمرة طوال السنة</li>
+              </ul>
+              <a class="primary-button dark-button" href="signup.html?plan=annual">اشترك سنويًا</a>
+            </article>
+            <article class="pricing-card">
+              <div class="plan-topline">
+                <span>مرن</span>
+                <strong>نصف سنوي</strong>
+              </div>
+              <div class="plan-price">
+                <b>40</b>
+                <span>ريال / 6 أشهر</span>
+              </div>
+              <ul>
+                <li>مناسب للتجربة خلال فصل دراسي</li>
+                <li>نفس أدوات التحضير والتعبئة</li>
+                <li>إمكانية الترقية لاحقًا للخطة السنوية</li>
+              </ul>
+              <a class="outline-button" href="signup.html?plan=semiannual">اشترك نصف سنوي</a>
+            </article>
+          </div>
+        </section>
+
         <section class="account-section cta-panel" id="account">
           <div>
             <h2>هل أنت مستعد لتوفير وقتك؟</h2>
@@ -153,7 +203,7 @@
       </main>
 
       <footer class="clean-footer">
-        <a class="brand" href="#top"><span class="brand-mark">ت</span><strong>تحضيري</strong></a>
+        <a class="brand" href="#top"><span class="brand-mark"><img src="assets/tahder-logo.png" alt="" aria-hidden="true"></span><strong>تحضيري</strong></a>
         <nav aria-label="روابط إضافية">
           <a href="index.html">الرئيسية</a>
           <a href="tools.html">الأدوات</a>
@@ -178,8 +228,8 @@
       </form>
     </div>
     <script src="config.js"></script>
-    <script src="supabase-client.js"></script>
-    <script src="site.js?v=demo-login-fix-1"></script>
+    <script src="api-client.js"></script>
+    <script src="site.js?v=pricing-section-1"></script>
   </body>
 </html>
 

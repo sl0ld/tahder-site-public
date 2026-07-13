@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f3f6f8">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <title>المراجعة والتقارير | تحضيري</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=site-unified-1">
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=signup-workflow-1">
     <link rel="stylesheet" href="review.css?v=site-unified-1">
   </head>
   <body class="home-redesign app-page review-page">
     <div class="page-shell review-shell">
       <header class="site-header clean-header">
         <a class="brand" href="index.html" aria-label="تحضيري">
-          <span class="brand-mark">ت</span>
+          <span class="brand-mark"><img src="assets/tahder-logo.png" alt="" aria-hidden="true"></span>
           <span>
             <strong>تحضيري</strong>
             <small>مراجعة المعلم</small>
@@ -78,6 +80,10 @@
               <span>حساب المعلم</span>
               <strong id="review-account">غير مسجل</strong>
               <small id="review-account-hint">سجل الدخول لعرض بنك التحاضير المحفوظ.</small>
+              <div class="review-subscription" id="review-subscription" hidden>
+                <span id="review-subscription-status">حالة الاشتراك: غير متاح</span>
+                <a href="index.html#account">إدارة الاشتراك</a>
+              </div>
             </div>
 
             <div class="review-card source-card">
@@ -205,7 +211,7 @@
     </div>
 
     <script src="config.js"></script>
-    <script src="supabase-client.js"></script>
+    <script src="api-client.js"></script>
     <script src="review.js?v=local-session-fix-1"></script>
   </body>
 </html>

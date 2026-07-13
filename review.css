@@ -84,7 +84,8 @@
 
 .review-quickbar[hidden],
 .review-layout[hidden],
-.review-locked[hidden] {
+.review-locked[hidden],
+.review-subscription[hidden] {
   display: none !important;
 }
 
@@ -191,6 +192,47 @@
   background:
     linear-gradient(135deg, rgba(227, 248, 242, 0.9), rgba(255, 255, 255, 0.95)),
     #fff;
+}
+
+.review-subscription {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid rgba(9, 126, 112, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.review-subscription span {
+  color: var(--mint-dark);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.review-subscription a {
+  justify-self: start;
+  color: var(--mint-dark);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.review-subscription a:hover {
+  text-decoration: underline;
+}
+
+.review-subscription[data-status="active"] span,
+.review-subscription[data-status="trial"] span {
+  color: #087364;
+}
+
+.review-subscription[data-status="expired"] span,
+.review-subscription[data-status="cancelled"] span,
+.review-subscription[data-status="past_due"] span {
+  color: #a33b3b;
 }
 
 .account-panel span,
