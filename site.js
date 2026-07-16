@@ -57,13 +57,17 @@ document.addEventListener('keydown', (event) => {
 });
 
 window.addEventListener('resize', () => {
-  if (window.innerWidth >= 768) setMobileNav(false);
+  if (window.innerWidth > 900) setMobileNav(false);
 });
 
 function isLocalHost() {
   return location.hostname === 'localhost'
     || location.hostname === '127.0.0.1'
     || location.hostname === '127.0.0.1.nip.io';
+}
+
+function dashboardUrl() {
+  return location.pathname.endsWith('.html') ? 'dashboard.html' : '/dashboard';
 }
 
 function readSession() {
@@ -186,14 +190,14 @@ loginForm.addEventListener('submit', async (event) => {
 
     dialog.hidden = true;
     await renderSession();
-    document.getElementById('account').scrollIntoView({ behavior: 'smooth' });
+    window.location.href = dashboardUrl();
   } catch (error) {
     if (isLocalHost()) {
       await globalThis.TahderApi?.signOut?.().catch(() => {});
       localStorage.setItem(sessionKey, JSON.stringify({ email, subscription: 'demo' }));
       dialog.hidden = true;
       await renderSession();
-      document.getElementById('account').scrollIntoView({ behavior: 'smooth' });
+      window.location.href = dashboardUrl();
       return;
     }
 

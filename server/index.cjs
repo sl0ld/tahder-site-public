@@ -732,6 +732,7 @@ const browserAssetFiles = new Set([
   'review.js',
   'admin.js',
   'tools.js',
+  'dashboard.js',
 ]);
 
 app.get('/:asset', (req, res, nextMiddleware) => {

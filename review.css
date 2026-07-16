@@ -212,6 +212,9 @@
 }
 
 .review-subscription a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
   justify-self: start;
   color: var(--mint-dark);
   font-size: 12px;
@@ -712,6 +715,9 @@
   .review-page .primary-row .outline-button,
   .review-page .primary-row .soft-button {
     flex: 1 1 140px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -745,10 +751,101 @@
   .review-page .primary-row .outline-button,
   .review-page .primary-row .soft-button {
     width: 100%;
+    min-height: 44px;
   }
 
   .review-page .meta-grid,
   .review-page .content-grid {
     gap: 10px;
+  }
+}
+
+/* Final review workspace polish. */
+.review-page {
+  --review-shadow: 0 18px 46px rgba(31, 48, 59, .075);
+  --review-shadow-strong: 0 26px 64px rgba(31, 48, 59, .105);
+}
+
+.review-page .review-hero,
+.review-page .review-card,
+.review-page .review-quickbar,
+.review-page .review-subscription {
+  box-shadow: var(--review-shadow);
+}
+
+.review-page .review-card,
+.review-page .review-hero,
+.review-page .review-subscription,
+.review-page .output-tabs button,
+.review-page .editor-actions .soft-button,
+.review-page .primary-row .primary-button,
+.review-page .primary-row .outline-button,
+.review-page .primary-row .soft-button {
+  transition:
+    transform .18s cubic-bezier(.2, .8, .2, 1),
+    box-shadow .18s cubic-bezier(.2, .8, .2, 1),
+    border-color .18s cubic-bezier(.2, .8, .2, 1),
+    background-color .18s cubic-bezier(.2, .8, .2, 1),
+    color .18s cubic-bezier(.2, .8, .2, 1);
+}
+
+.review-page .review-card:hover {
+  border-color: rgba(18, 199, 178, .22);
+  box-shadow: var(--review-shadow-strong);
+}
+
+.review-page .review-hero h1,
+.review-page .editor-head h2,
+.review-page .review-card h3 {
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.review-page .review-hero p,
+.review-page .review-card p {
+  text-wrap: pretty;
+}
+
+.review-page .meta-grid input,
+.review-page .content-grid textarea,
+.review-page #generated-output,
+.review-page .ai-prompt-row input {
+  transition: border-color .18s cubic-bezier(.2, .8, .2, 1), box-shadow .18s cubic-bezier(.2, .8, .2, 1), background-color .18s cubic-bezier(.2, .8, .2, 1);
+}
+
+.review-page .meta-grid input:hover,
+.review-page .content-grid textarea:hover,
+.review-page #generated-output:hover,
+.review-page .ai-prompt-row input:hover {
+  border-color: rgba(10, 146, 127, .3);
+}
+
+.review-page .meta-grid input:focus,
+.review-page .content-grid textarea:focus,
+.review-page #generated-output:focus,
+.review-page .ai-prompt-row input:focus {
+  border-color: rgba(10, 146, 127, .48);
+  box-shadow: 0 0 0 4px rgba(18, 199, 178, .16);
+}
+
+.review-page .output-tabs button:hover,
+.review-page .output-tabs button.active {
+  box-shadow: 0 12px 28px rgba(31, 48, 59, .07);
+}
+
+.review-page .editor-actions .soft-button:hover,
+.review-page .primary-row .primary-button:hover,
+.review-page .primary-row .outline-button:hover,
+.review-page .primary-row .soft-button:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 760px) {
+  .review-page .review-card:hover,
+  .review-page .editor-actions .soft-button:hover,
+  .review-page .primary-row .primary-button:hover,
+  .review-page .primary-row .outline-button:hover,
+  .review-page .primary-row .soft-button:hover {
+    transform: none;
   }
 }

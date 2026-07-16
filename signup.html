@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=signup-workflow-1">
+    <link rel="stylesheet" href="styles.css?v=site-header-unified-1">
   </head>
   <body class="home-redesign app-page signup-page">
     <div class="page-shell signup-shell">
@@ -22,8 +22,13 @@
             <small>مساعد المعلم الذكي</small>
           </span>
         </a>
+        <nav class="nav-links" aria-label="التنقل الرئيسي">
+          <a href="index.html#features">المميزات</a>
+          <a href="tools.html">الأدوات</a>
+          <a href="index.html#install">التثبيت</a>
+        </nav>
         <div class="header-actions">
-          <a class="outline-button" href="index.html#account">تسجيل الدخول</a>
+          <a class="outline-button" href="dashboard.html">لوحة المعلم</a>
           <a class="soft-button" href="index.html">العودة للرئيسية</a>
         </div>
       </header>
@@ -32,52 +37,116 @@
         <section class="signup-card">
           <div class="signup-copy">
             <p class="eyebrow">حساب تحضيري</p>
-            <h1>أنشئ حسابك وابدأ ربط الإضافة.</h1>
+            <h1>ابدأ تجربة تحضيري بخطوات قصيرة.</h1>
             <p>
-              الحساب يوحد الموقع والجوال والإكستنشن في اشتراك واحد وبنك تحاضير واحد.
-              أدخل بريدك ورقم جوالك حتى نقدر نربط حسابك ونفعل التجربة أو الاشتراك المناسب.
+              لا نحتاج منك كل البيانات من البداية. أنشئ الحساب أولًا، ثم اختر المرحلة والمادة، وبعدها ابدأ التجربة.
             </p>
             <div class="signup-benefits">
-              <span>نفس الحساب للموقع والجوال</span>
-              <span>ربط آمن مع الإكستنشن</span>
+              <span>تجربة مجانية</span>
+              <span>معاينة قبل التعبئة</span>
               <span>لا نحفظ كلمة مرور مدرستي</span>
             </div>
           </div>
 
-          <form class="signup-form" id="signup-form">
+          <form class="signup-form" id="signup-form" novalidate>
+            <div class="signup-progress" aria-label="خطوات التسجيل">
+              <span class="active" data-progress-step="1">1</span>
+              <i></i>
+              <span data-progress-step="2">2</span>
+              <i></i>
+              <span data-progress-step="3">3</span>
+            </div>
             <p class="form-message" id="signup-message" hidden></p>
-            <label>
-              <span>البريد الإلكتروني</span>
-              <input name="email" type="email" placeholder="teacher@example.com" required>
-            </label>
-            <label>
-              <span>رقم الجوال</span>
-              <input name="phone" type="tel" inputmode="tel" dir="ltr" placeholder="05xxxxxxxx" required>
-            </label>
-            <label>
-              <span>كلمة المرور</span>
-              <input name="password" type="password" placeholder="8 أحرف أو أكثر" minlength="8" required>
-            </label>
-            <label>
-              <span>اسم المعلم</span>
-              <input name="display_name" type="text" placeholder="اختياري">
-            </label>
-            <fieldset class="plan-picker" id="plan-picker">
-              <legend>اختر الباقة</legend>
-              <p>اختر الباقة التي تريد تفعيلها على نفس الحساب.</p>
-              <div class="plan-options" id="plan-options">
-                <label class="plan-option">
-                  <input name="plan_id" type="radio" value="trial" checked>
-                  <span>
-                    <b>تجربة</b>
-                    <small>7 أيام للتأكد من الورك فلو</small>
-                  </span>
-                  <strong>مجاني</strong>
-                </label>
+
+            <section class="signup-step active" data-step="1" aria-labelledby="signup-step-1-title">
+              <span class="step-label">الخطوة 1 من 3</span>
+              <h2 id="signup-step-1-title">إنشاء حساب</h2>
+              <p>استخدم بريدك وكلمة مرور لحساب تحضيري. لا نطلب كلمة مرور منصة مدرستي.</p>
+              <label>
+                <span>البريد الإلكتروني</span>
+                <input name="email" type="email" placeholder="teacher@example.com" autocomplete="email" required>
+                <small class="field-error" data-error-for="email"></small>
+              </label>
+              <label>
+                <span>كلمة المرور</span>
+                <input name="password" type="password" placeholder="8 أحرف أو أكثر" minlength="8" autocomplete="new-password" required>
+                <small class="field-error" data-error-for="password"></small>
+              </label>
+              <button class="primary-button full-button" type="button" data-next-step>التالي</button>
+            </section>
+
+            <section class="signup-step" data-step="2" aria-labelledby="signup-step-2-title" hidden>
+              <span class="step-label">الخطوة 2 من 3</span>
+              <h2 id="signup-step-2-title">اختيار المرحلة والمادة</h2>
+              <p>نستخدم هذا الاختيار لتجهيز تجربة أقرب لاستخدامك داخل مدرستي.</p>
+              <label>
+                <span>المرحلة</span>
+                <select name="education_stage" required>
+                  <option value="">اختر المرحلة</option>
+                  <option value="primary">الابتدائية</option>
+                  <option value="middle">المتوسطة</option>
+                  <option value="secondary">الثانوية</option>
+                </select>
+                <small class="field-error" data-error-for="education_stage"></small>
+              </label>
+              <label>
+                <span>المادة</span>
+                <select name="subject" required>
+                  <option value="">اختر المادة</option>
+                  <option value="arabic">لغتي / اللغة العربية</option>
+                  <option value="math">الرياضيات</option>
+                  <option value="science">العلوم</option>
+                  <option value="english">اللغة الإنجليزية</option>
+                  <option value="other">مادة أخرى</option>
+                </select>
+                <small class="field-error" data-error-for="subject"></small>
+              </label>
+              <div class="signup-step-actions">
+                <button class="outline-button" type="button" data-prev-step>السابق</button>
+                <button class="primary-button" type="button" data-next-step>التالي</button>
               </div>
-            </fieldset>
-            <button class="primary-button full-button" type="submit">إنشاء الحساب</button>
-            <a class="dialog-link" href="index.html#account">لديك حساب؟ سجل الدخول</a>
+            </section>
+
+            <section class="signup-step" data-step="3" aria-labelledby="signup-step-3-title" hidden>
+              <span class="step-label">الخطوة 3 من 3</span>
+              <h2 id="signup-step-3-title">بدء التجربة</h2>
+              <p>ابدأ بالتجربة المجانية أو اختر الباقة المناسبة من نفس الحساب.</p>
+              <fieldset class="plan-picker" id="plan-picker">
+                <legend>اختر الباقة</legend>
+                <p>يمكنك البدء بالتجربة المجانية ثم تغيير الباقة لاحقًا.</p>
+                <div class="plan-options" id="plan-options">
+                  <label class="plan-option">
+                    <input name="plan_id" type="radio" value="trial" checked>
+                    <span>
+                      <b>تجربة</b>
+                      <small>7 أيام للتأكد من الورك فلو</small>
+                    </span>
+                    <strong>مجاني</strong>
+                  </label>
+                  <label class="plan-option">
+                    <input name="plan_id" type="radio" value="teacher-half-year">
+                    <span>
+                      <b>اشتراك المعلم نصف السنوي</b>
+                      <small>180 يوم</small>
+                    </span>
+                    <strong>40 ريال</strong>
+                  </label>
+                  <label class="plan-option">
+                    <input name="plan_id" type="radio" value="teacher-yearly">
+                    <span>
+                      <b>اشتراك المعلم السنوي</b>
+                      <small>365 يوم</small>
+                    </span>
+                    <strong>70 ريال</strong>
+                  </label>
+                </div>
+              </fieldset>
+              <div class="signup-step-actions">
+                <button class="outline-button" type="button" data-prev-step>السابق</button>
+                <button class="primary-button" type="submit">بدء التجربة</button>
+              </div>
+            </section>
+            <a class="dialog-link" href="dashboard.html">لديك حساب؟ افتح لوحة المعلم</a>
           </form>
         </section>
       </main>
@@ -85,6 +154,6 @@
 
     <script src="config.js"></script>
     <script src="api-client.js?v=mysql-api-1"></script>
-    <script src="signup.js?v=signup-workflow-1"></script>
+    <script src="signup.js?v=signup-steps-1"></script>
   </body>
 </html>

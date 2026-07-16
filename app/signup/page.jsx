@@ -10,7 +10,7 @@ export default function SignupPage() {
   return (
     <>
       <div className={page.className} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: page.html }} />
-      <LegacyScripts scripts={['/config.js', '/api-client.js', '/signup.js?v=next-server-1']} />
+      <LegacyScripts scripts={['/config.js', '/api-client.js', '/signup.js?v=signup-steps-1']} />
     </>
   );
 }

@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <>
       <div className={page.className} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: page.html }} />
-      <LegacyScripts scripts={['/config.js', '/api-client.js', '/site.js?v=pricing-section-1']} />
+      <LegacyScripts scripts={['/config.js', '/api-client.js', '/site.js?v=desktop-header-align-1']} />
     </>
   );
 }

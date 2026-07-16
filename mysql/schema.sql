@@ -208,8 +208,9 @@ create index activity_logs_user_created_idx on activity_logs (user_id, created_a
 insert into plans (id, name_ar, price_sar, duration_days, features, is_active)
 values
   ('trial', 'تجربة', 0, 7, json_object('ai_generations', 10), 1),
-  ('teacher-monthly', 'اشتراك المعلم الشهري', 29, 30, json_object('ai_generations', 300), 1),
-  ('teacher-yearly', 'اشتراك المعلم السنوي', 249, 365, json_object('ai_generations', 5000), 1)
+  ('teacher-half-year', 'اشتراك المعلم نصف السنوي', 40, 180, json_object(), 1),
+  ('teacher-yearly', 'اشتراك المعلم السنوي', 70, 365, json_object(), 1),
+  ('teacher-monthly', 'اشتراك المعلم الشهري', 29, 30, json_object(), 0)
 on duplicate key update
   name_ar = values(name_ar),
   price_sar = values(price_sar),

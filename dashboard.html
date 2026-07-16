@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111827">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <title>لوحة المعلم | تحضيري</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=dashboard-saas-1">
+    <link rel="stylesheet" href="dashboard.css?v=dashboard-saas-1">
+  </head>
+  <body class="teacher-dashboard-page">
+    <div class="dashboard-shell">
+      <aside class="teacher-sidebar" aria-label="تنقل لوحة المعلم">
+        <a class="dashboard-brand" href="index.html">
+          <span><img src="assets/tahder-logo.png" alt="" aria-hidden="true"></span>
+          <strong>تحضيري</strong>
+        </a>
+        <nav>
+          <a class="active" href="#overview"><span>⌂</span>الرئيسية</a>
+          <a href="#preparations"><span>☰</span>تحضيراتي</a>
+          <a href="simulator"><span>＋</span>إنشاء تحضير</a>
+          <a href="review.html"><span>✓</span>المراجعة</a>
+          <a href="#extension"><span>▣</span>الإضافة</a>
+          <a href="#subscription"><span>◆</span>الاشتراك</a>
+          <a href="#support"><span>؟</span>الدعم</a>
+        </nav>
+        <div class="sidebar-footer">
+          <small>حالة الحساب</small>
+          <strong id="sidebar-status">جاري التحقق</strong>
+        </div>
+      </aside>
+
+      <main class="teacher-dashboard">
+        <header class="dashboard-topbar">
+          <div>
+            <p class="eyebrow">لوحة المعلم</p>
+            <h1>مرحبًا في مساحة تحضيري.</h1>
+            <p>تابع آخر التحاضير، حالة الاشتراك، وحالة الإضافة من مكان واحد.</p>
+          </div>
+          <div class="dashboard-actions">
+            <a class="outline-button" href="index.html">الموقع</a>
+            <button class="primary-button dark-button" id="dashboard-logout" type="button">تسجيل الخروج</button>
+          </div>
+        </header>
+
+        <section class="dashboard-state dashboard-loading" id="dashboard-loading">
+          <span class="loading-dot"></span>
+          <strong>جاري تحميل لوحة المعلم...</strong>
+          <p>نراجع الجلسة والاشتراك وآخر التحاضير.</p>
+        </section>
+
+        <section class="dashboard-state dashboard-error" id="dashboard-error" hidden>
+          <strong>تعذر تحميل اللوحة</strong>
+          <p id="dashboard-error-text">حدث خطأ غير متوقع.</p>
+          <div>
+            <button class="primary-button" id="retry-dashboard" type="button">إعادة المحاولة</button>
+            <a class="outline-button" href="index.html#account">تسجيل الدخول</a>
+          </div>
+        </section>
+
+        <div id="dashboard-content" hidden>
+          <section class="metric-grid" id="overview" aria-label="ملخص لوحة المعلم">
+            <article>
+              <span>آخر التحاضير</span>
+              <strong id="metric-preparations">0</strong>
+              <small>تحضير محفوظ</small>
+            </article>
+            <article id="subscription">
+              <span>حالة الاشتراك</span>
+              <strong id="metric-subscription">غير متاح</strong>
+              <small id="metric-plan">الخطة: غير محددة</small>
+            </article>
+            <article id="extension">
+              <span>حالة الإضافة</span>
+              <strong id="metric-extension">جاهزة للتثبيت</strong>
+              <small>تعمل داخل صفحات التحضير المناسبة</small>
+            </article>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="dashboard-panel create-prep-panel">
+              <div>
+                <span class="panel-icon">＋</span>
+                <h2>إنشاء تحضير جديد</h2>
+                <p>ابدأ من المحاكي لاختبار الورك فلو، أو افتح مدرستي لاستخدام الإضافة داخل صفحة التحضير.</p>
+              </div>
+              <div class="panel-actions">
+                <a class="primary-button dark-button" href="simulator">فتح المحاكي</a>
+                <a class="outline-button" href="https://schools.madrasati.sa/?Language=1" target="_blank" rel="noreferrer">فتح مدرستي</a>
+              </div>
+            </article>
+
+            <article class="dashboard-panel extension-panel">
+              <div>
+                <span class="panel-icon">▣</span>
+                <h2>الإضافة</h2>
+                <p id="extension-copy">ثبّت إضافة تحضيري ثم افتح صفحة التحضير داخل مدرستي.</p>
+              </div>
+              <div class="panel-actions">
+                <a class="primary-button" href="index.html#install">طريقة التثبيت</a>
+                <a class="outline-button" href="developer-installation.html">Developer Installation</a>
+              </div>
+            </article>
+          </section>
+
+          <section class="dashboard-panel preparations-panel" id="preparations">
+            <div class="panel-header">
+              <div>
+                <h2>آخر التحاضير</h2>
+                <p>أحدث التحاضير المحفوظة في حسابك.</p>
+              </div>
+              <a class="outline-button" href="review.html">فتح المراجعة</a>
+            </div>
+            <div class="prep-list" id="dashboard-prep-list"></div>
+            <div class="empty-dashboard-state" id="preparations-empty" hidden>
+              <strong>لا توجد تحاضير محفوظة بعد</strong>
+              <p>ابدأ أول تحضير من المحاكي أو من إضافة تحضيري داخل منصة مدرستي.</p>
+              <a class="primary-button" href="simulator">إنشاء أول تحضير</a>
+            </div>
+          </section>
+
+          <section class="dashboard-grid bottom-grid">
+            <article class="dashboard-panel subscription-panel">
+              <span class="panel-icon">◆</span>
+              <h2>الاشتراك</h2>
+              <p id="subscription-copy">نراجع حالة الاشتراك الحالية.</p>
+              <a class="outline-button" href="index.html#pricing">تغيير الباقة</a>
+            </article>
+            <article class="dashboard-panel support-panel" id="support">
+              <span class="panel-icon">؟</span>
+              <h2>الدعم</h2>
+              <p>لو واجهت مشكلة في التثبيت أو ظهور الإضافة داخل مدرستي، ابدأ من خطوات التثبيت أو تواصل مع فريق الدعم.</p>
+              <a class="outline-button" href="index.html#faq">الأسئلة الشائعة</a>
+            </article>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="api-client.js?v=mysql-api-1"></script>
+    <script src="dashboard.js?v=dashboard-saas-1"></script>
+  </body>
+</html>

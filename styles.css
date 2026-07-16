@@ -2963,3 +2963,2889 @@ textarea,
     font-size: 44px;
   }
 }
+
+/* Trust and conversion refresh for the homepage hero. */
+.home-redesign:not(.app-page) .home-hero .hero-text {
+  max-width: 660px;
+}
+
+.home-redesign:not(.app-page) .trust-strip {
+  display: grid;
+  width: min(1120px, calc(100% - 32px));
+  max-width: 1120px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  direction: rtl;
+  margin: 0 auto;
+}
+
+.home-redesign:not(.app-page) .trust-strip article {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 10px;
+  border: 1px solid rgba(17, 24, 39, .07);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 16px 38px rgba(31, 48, 59, .06);
+  text-align: right;
+  padding: 22px;
+}
+
+.home-redesign:not(.app-page) .trust-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--mint-soft);
+  color: var(--mint-dark);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.home-redesign:not(.app-page) .trust-strip strong {
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.home-redesign:not(.app-page) .trust-strip p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.home-redesign:not(.app-page) #how-it-works {
+  scroll-margin-top: 96px;
+}
+
+@media (max-width: 900px) {
+  .home-redesign:not(.app-page) .trust-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-inline: 18px;
+    width: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-redesign:not(.app-page) .trust-strip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-inline: 12px;
+  }
+
+  .home-redesign:not(.app-page) .trust-strip article {
+    min-height: auto;
+    border-radius: 16px;
+    padding: 18px;
+  }
+
+  .home-redesign:not(.app-page) .trust-strip strong {
+    font-size: 15px;
+  }
+
+  .home-redesign:not(.app-page) .trust-strip p {
+    font-size: 13px;
+  }
+}
+
+/* Premium extension installation section for regular teachers. */
+.home-redesign:not(.app-page) .install-premium {
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: stretch;
+  gap: clamp(26px, 4vw, 54px);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(18, 199, 178, .22), transparent 32%),
+    linear-gradient(135deg, #0b1220 0%, #111827 54%, #0f2d35 100%);
+}
+
+.home-redesign:not(.app-page) .install-premium .eyebrow {
+  display: inline-flex;
+  width: max-content;
+  margin: 0 0 16px;
+  border: 1px solid rgba(18, 199, 178, .28);
+  border-radius: 999px;
+  background: rgba(18, 199, 178, .12);
+  color: #99fff2;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 8px 12px;
+}
+
+.home-redesign:not(.app-page) .install-premium .install-copy h2 {
+  max-width: 620px;
+}
+
+.home-redesign:not(.app-page) .install-lead {
+  max-width: 590px;
+  margin: 0;
+  color: rgba(255, 255, 255, .76);
+  font-size: 16px;
+  line-height: 1.95;
+}
+
+.home-redesign:not(.app-page) .install-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.home-redesign:not(.app-page) .install-main-button {
+  min-height: 46px;
+  background: var(--mint) !important;
+  color: #062b27 !important;
+  box-shadow: 0 16px 32px rgba(18, 199, 178, .24) !important;
+}
+
+.home-redesign:not(.app-page) .install-dev-link {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, .78);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0 14px;
+}
+
+.home-redesign:not(.app-page) .install-user-steps {
+  margin-top: 24px;
+}
+
+.home-redesign:not(.app-page) .install-user-steps li {
+  background: rgba(255, 255, 255, .07);
+}
+
+.home-redesign:not(.app-page) .install-visual {
+  display: grid;
+  grid-template-rows: minmax(260px, 1fr) auto;
+  gap: 16px;
+  min-height: 100%;
+  border: 1px solid rgba(255, 255, 255, .1);
+  background: linear-gradient(135deg, rgba(18, 199, 178, .16), rgba(255, 255, 255, .05));
+  padding: 18px;
+}
+
+.install-illustration {
+  position: relative;
+  display: grid;
+  min-height: 288px;
+  place-items: center;
+}
+
+.browser-frame {
+  width: min(440px, 100%);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .1);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, .22);
+}
+
+.browser-top {
+  display: flex;
+  gap: 6px;
+  padding: 14px;
+}
+
+.browser-top span {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .42);
+}
+
+.browser-page {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+}
+
+.page-line {
+  width: 62%;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .18);
+}
+
+.page-line.wide {
+  width: 86%;
+  height: 16px;
+  background: rgba(255, 255, 255, .25);
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .12);
+  color: rgba(255, 255, 255, .76);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 13px;
+}
+
+.field-row.active {
+  background: rgba(18, 199, 178, .86);
+  color: #062b27;
+}
+
+.field-row i {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .28);
+  font-style: normal;
+  font-size: 12px;
+}
+
+.extension-popover {
+  position: absolute;
+  right: clamp(8px, 5vw, 38px);
+  bottom: 18px;
+  display: grid;
+  width: min(230px, 74%);
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 18px;
+  background: rgba(9, 20, 35, .86);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, .28);
+  color: #fff;
+  padding: 16px;
+}
+
+.popover-logo {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.popover-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.extension-popover strong {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.extension-popover small {
+  color: rgba(255, 255, 255, .66);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.extension-popover em {
+  width: max-content;
+  margin-top: 4px;
+  border-radius: 999px;
+  background: var(--mint);
+  color: #062b27;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 8px 10px;
+}
+
+.permissions-card {
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .07);
+  padding: 18px;
+}
+
+.permissions-card h3 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.permissions-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.permissions-card li {
+  position: relative;
+  color: rgba(255, 255, 255, .76);
+  font-size: 13px;
+  line-height: 1.75;
+  padding-right: 18px;
+}
+
+.permissions-card li::before {
+  content: "";
+  position: absolute;
+  top: .82em;
+  right: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--mint);
+}
+
+@media (max-width: 860px) {
+  .home-redesign:not(.app-page) .install-premium {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-redesign:not(.app-page) .install-premium {
+    margin-inline: 12px;
+    padding: 22px;
+  }
+
+  .home-redesign:not(.app-page) .install-premium .install-copy h2 {
+    max-width: 100%;
+    margin-inline: 0;
+    font-size: 27px;
+  }
+
+  .home-redesign:not(.app-page) .install-lead {
+    font-size: 13px;
+  }
+
+  .home-redesign:not(.app-page) .install-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .home-redesign:not(.app-page) .install-main-button,
+  .home-redesign:not(.app-page) .install-dev-link {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .install-illustration {
+    min-height: 250px;
+  }
+
+  .extension-popover {
+    right: 12px;
+    bottom: 10px;
+  }
+}
+
+/* Developer-only installation page. */
+.developer-install-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(18, 199, 178, .12), transparent 32%),
+    #f3f6f8;
+}
+
+.developer-install-page .developer-install-hero {
+  display: grid;
+  max-width: 920px;
+  justify-items: center;
+  margin: 0 auto;
+  padding: 92px 24px 48px;
+  text-align: center;
+}
+
+.developer-install-page .developer-install-hero .eyebrow {
+  display: inline-flex;
+  width: max-content;
+  min-height: 32px;
+  align-items: center;
+  border: 1px solid rgba(18, 199, 178, .24);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--mint-dark);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 0 13px;
+}
+
+.developer-install-page .developer-install-hero h1 {
+  max-width: 720px;
+  margin: 18px 0 14px;
+  color: var(--ink);
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.developer-install-page .developer-install-hero p {
+  max-width: 660px;
+  margin: 0 0 26px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.developer-steps-section {
+  display: grid;
+  max-width: 980px;
+  grid-template-columns: .72fr 1.28fr;
+  gap: 18px;
+  margin: 0 auto 76px;
+  padding: 0 24px;
+}
+
+.developer-warning,
+.developer-steps {
+  border: 1px solid rgba(17, 24, 39, .07);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(31, 48, 59, .07);
+}
+
+.developer-warning {
+  align-self: start;
+  padding: 24px;
+}
+
+.developer-warning strong {
+  display: block;
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.developer-warning p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.developer-steps {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+}
+
+.developer-steps li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.developer-steps li + li {
+  border-top: 1px solid var(--line);
+}
+
+.developer-steps b {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--mint-soft);
+  color: var(--mint-dark);
+  font-size: 13px;
+}
+
+.developer-steps strong {
+  display: block;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.developer-steps span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.developer-steps code {
+  border-radius: 8px;
+  background: #f3f6f8;
+  color: #111827;
+  padding: 3px 7px;
+}
+
+@media (max-width: 760px) {
+  .developer-install-page .developer-install-hero {
+    padding: 58px 16px 34px;
+  }
+
+  .developer-install-page .developer-install-hero h1 {
+    font-size: 32px;
+  }
+
+  .developer-install-page .developer-install-hero p {
+    font-size: 14px;
+  }
+
+  .developer-steps-section {
+    grid-template-columns: 1fr;
+    padding-inline: 12px;
+  }
+}
+
+/* Three-step signup experience. */
+.signup-page .signup-form {
+  display: grid;
+  gap: 18px;
+}
+
+.signup-progress {
+  display: grid;
+  grid-template-columns: 34px 1fr 34px 1fr 34px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.signup-progress span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.signup-progress span.active,
+.signup-progress span.done {
+  border-color: #111827;
+  background: #111827;
+  color: #fff;
+}
+
+.signup-progress i {
+  height: 2px;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.signup-step {
+  display: grid;
+  gap: 14px;
+}
+
+.signup-step[hidden] {
+  display: none;
+}
+
+.signup-step .step-label {
+  width: max-content;
+  border-radius: 999px;
+  background: var(--mint-soft);
+  color: var(--mint-dark);
+  font-size: 12px;
+  font-weight: 900;
+  padding: 7px 10px;
+}
+
+.signup-step h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 25px;
+  line-height: 1.35;
+}
+
+.signup-step > p {
+  margin: -4px 0 2px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.signup-form label {
+  margin-top: 0;
+}
+
+.signup-form select,
+.signup-form input {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 6px;
+  border: 1px solid rgba(17, 24, 39, .1);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+  padding: 12px;
+}
+
+.signup-form select:focus,
+.signup-form input:focus {
+  border-color: var(--mint);
+  box-shadow: 0 0 0 3px rgba(10, 146, 127, .1);
+}
+
+.signup-form .input-error {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, .1);
+}
+
+.field-error {
+  display: block;
+  min-height: 18px;
+  margin-top: 6px;
+  color: #b23b3b;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.signup-step-actions {
+  display: grid;
+  grid-template-columns: .82fr 1.18fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.signup-step-actions .primary-button,
+.signup-step-actions .outline-button {
+  justify-content: center;
+  width: 100%;
+  min-height: 44px;
+}
+
+.signup-page .plan-picker {
+  margin-top: 0;
+}
+
+.signup-page .form-message {
+  margin: 0;
+}
+
+@media (max-width: 560px) {
+  .signup-progress {
+    grid-template-columns: 30px 1fr 30px 1fr 30px;
+  }
+
+  .signup-progress span {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .signup-step h2 {
+    font-size: 22px;
+  }
+
+  .signup-step-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Homepage reordered sections: demo, ready features, roadmap, FAQ, final CTA. */
+.home-redesign:not(.app-page) .product-demo-section,
+.home-redesign:not(.app-page) .coming-soon-section,
+.home-redesign:not(.app-page) .faq-section {
+  direction: rtl;
+}
+
+.home-redesign:not(.app-page) .product-demo-section {
+  max-width: 1180px;
+  margin: 82px auto 0;
+  padding: 0 24px;
+}
+
+.demo-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.28fr) minmax(280px, .72fr);
+  align-items: stretch;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.demo-browser,
+.demo-copy,
+.coming-soon-section,
+.faq-grid article {
+  border: 1px solid rgba(17, 24, 39, .07);
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(31, 48, 59, .07);
+}
+
+.demo-browser {
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.demo-topbar {
+  display: flex;
+  gap: 7px;
+  border-bottom: 1px solid var(--line);
+  background: #f8fafc;
+  padding: 14px 18px;
+}
+
+.demo-topbar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #d8e0e6;
+}
+
+.demo-layout {
+  position: relative;
+  display: grid;
+  min-height: 360px;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 18px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(18, 199, 178, .13), transparent 30%),
+    #fff;
+  padding: 24px;
+}
+
+.demo-layout aside {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  border-radius: 18px;
+  background: #f3f6f8;
+  padding: 14px;
+}
+
+.demo-layout aside i {
+  height: 34px;
+  border-radius: 10px;
+  background: #dbe6ec;
+}
+
+.demo-content {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.demo-title-line,
+.demo-form-line,
+.demo-form-box {
+  border-radius: 14px;
+  background: #eef3f6;
+}
+
+.demo-title-line {
+  width: min(360px, 80%);
+  height: 24px;
+}
+
+.demo-form-line {
+  width: min(520px, 100%);
+  height: 46px;
+}
+
+.demo-form-line.short {
+  width: min(400px, 82%);
+}
+
+.demo-form-box {
+  width: min(560px, 100%);
+  height: 132px;
+}
+
+.demo-extension-card {
+  position: absolute;
+  left: 26px;
+  bottom: 24px;
+  display: grid;
+  width: min(260px, 44%);
+  gap: 7px;
+  border: 1px solid rgba(17, 24, 39, .08);
+  border-radius: 18px;
+  background: #111827;
+  color: #fff;
+  box-shadow: 0 24px 44px rgba(17, 24, 39, .22);
+  padding: 16px;
+}
+
+.demo-extension-card span {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.demo-extension-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.demo-extension-card strong {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.demo-extension-card small {
+  color: rgba(255, 255, 255, .68);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.demo-extension-card em {
+  width: max-content;
+  border-radius: 999px;
+  background: var(--mint);
+  color: #062b27;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 8px 10px;
+}
+
+.demo-copy {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  border-radius: 24px;
+  padding: 26px;
+}
+
+.demo-copy h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+.demo-copy ul,
+.coming-grid,
+.faq-grid {
+  margin: 0;
+  padding: 0;
+}
+
+.demo-copy ul {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+
+.demo-copy li {
+  position: relative;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  padding-right: 18px;
+}
+
+.demo-copy li::before {
+  content: "";
+  position: absolute;
+  top: .82em;
+  right: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--mint);
+}
+
+.coming-soon-section {
+  display: grid;
+  max-width: 920px;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: 22px;
+  margin: -34px auto 84px;
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.coming-soon-section h2 {
+  margin: 14px 0 0;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.45;
+}
+
+.coming-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.coming-grid article {
+  border-radius: 16px;
+  background: #f8fafc;
+  padding: 16px;
+}
+
+.coming-grid strong {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.coming-grid p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.faq-section {
+  max-width: 1060px;
+  margin: 0 auto 72px;
+  padding: 0 24px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.faq-grid article {
+  border-radius: 18px;
+  padding: 22px;
+  text-align: right;
+}
+
+.faq-grid h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.faq-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.home-redesign:not(.app-page) .workflow-section {
+  display: grid;
+}
+
+.home-redesign:not(.app-page) .features-section {
+  padding-top: 88px;
+}
+
+.home-redesign:not(.app-page) .features-section .clean-feature-grid {
+  width: min(920px, 100%);
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.home-redesign:not(.app-page) .features-section .clean-feature-grid article {
+  min-height: 210px;
+}
+
+@media (max-width: 900px) {
+  .demo-stage,
+  .coming-soon-section {
+    grid-template-columns: 1fr;
+  }
+
+  .coming-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .home-redesign:not(.app-page) .product-demo-section,
+  .home-redesign:not(.app-page) .faq-section {
+    padding-inline: 12px;
+  }
+
+  .demo-stage {
+    margin-top: 22px;
+  }
+
+  .demo-layout {
+    min-height: 330px;
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .demo-layout aside {
+    display: none;
+  }
+
+  .demo-extension-card {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    width: auto;
+  }
+
+  .demo-copy,
+  .coming-soon-section,
+  .faq-grid article {
+    border-radius: 18px;
+    padding: 18px;
+  }
+
+  .coming-soon-section {
+    margin: -24px 12px 58px;
+  }
+
+  .faq-grid,
+  .home-redesign:not(.app-page) .features-section .clean-feature-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Premium SaaS pricing aligned with active system plans. */
+.home-redesign:not(.app-page) .pricing-saas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: stretch;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 8%, rgba(18, 199, 178, .16), transparent 32%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbfc 100%);
+}
+
+.home-redesign:not(.app-page) .pricing-saas .pricing-heading {
+  max-width: 760px;
+}
+
+.home-redesign:not(.app-page) .pricing-saas .pricing-heading h2 {
+  max-width: 720px;
+}
+
+.home-redesign:not(.app-page) .pricing-saas .pricing-heading p {
+  max-width: 650px;
+}
+
+.trial-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid rgba(18, 199, 178, .24);
+  border-radius: 18px;
+  background: rgba(231, 255, 251, .74);
+  color: #0f4f49;
+  padding: 16px 18px;
+}
+
+.trial-note strong {
+  color: #062b27;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.trial-note span {
+  flex: 1 1 320px;
+  color: #2f6861;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.trial-note a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #111827;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0 14px;
+}
+
+.home-redesign:not(.app-page) .pricing-saas .pricing-grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  align-items: stretch;
+  gap: 18px;
+}
+
+.home-redesign:not(.app-page) .pricing-saas .pricing-card {
+  position: relative;
+  gap: 18px;
+  border-radius: 24px;
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.home-redesign:not(.app-page) .pricing-saas .pricing-card-featured {
+  border-color: rgba(18, 199, 178, .52);
+  background:
+    radial-gradient(circle at 14% 10%, rgba(18, 199, 178, .18), transparent 34%),
+    #fff;
+  box-shadow: 0 26px 60px rgba(18, 199, 178, .13), 0 18px 44px rgba(31, 48, 59, .08);
+}
+
+.best-plan-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  border-radius: 999px;
+  background: #111827;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 8px 11px;
+}
+
+.home-redesign:not(.app-page) .pricing-saas .plan-topline {
+  padding-left: 112px;
+}
+
+.home-redesign:not(.app-page) .pricing-saas .plan-topline strong {
+  font-size: clamp(20px, 2vw, 25px);
+}
+
+.home-redesign:not(.app-page) .pricing-saas .plan-price {
+  margin-top: 4px;
+}
+
+.home-redesign:not(.app-page) .pricing-saas .plan-price b {
+  font-size: clamp(50px, 6vw, 72px);
+}
+
+.plan-summary {
+  max-width: 520px;
+  margin: -4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+@media (max-width: 760px) {
+  .home-redesign:not(.app-page) .pricing-saas {
+    gap: 16px;
+  }
+
+  .trial-note {
+    display: grid;
+    justify-items: start;
+  }
+
+  .trial-note a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .home-redesign:not(.app-page) .pricing-saas .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .best-plan-badge {
+    position: static;
+    width: max-content;
+  }
+
+  .home-redesign:not(.app-page) .pricing-saas .plan-topline {
+    padding-left: 0;
+  }
+}
+
+/* Mobile-first polish for shared app pages without changing the visual identity. */
+@media (max-width: 760px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .app-page .clean-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand actions"
+      "nav nav";
+    align-items: center;
+    gap: 10px 12px;
+    padding: 12px 14px;
+  }
+
+  .app-page .clean-header .brand {
+    grid-area: brand;
+    min-width: 0;
+  }
+
+  .app-page .clean-header .header-actions {
+    grid-area: actions;
+    justify-content: flex-end;
+    margin-inline-start: 0;
+  }
+
+  .app-page .clean-header .nav-links {
+    grid-area: nav;
+    order: initial;
+    width: calc(100% + 8px);
+    margin-inline: -4px;
+    padding: 2px 4px 4px;
+  }
+
+  .app-page .clean-header .nav-links a,
+  .tools-page .tools-strip a,
+  .tools-page .category-button,
+  .primary-button,
+  .outline-button,
+  .soft-button,
+  button {
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .app-page .clean-header .nav-links a {
+    display: inline-flex;
+    padding: 0 14px;
+  }
+
+  .app-page .clean-header .header-actions .outline-button,
+  .app-page .clean-header .header-actions .soft-button,
+  .app-page .clean-header .header-actions .primary-button {
+    min-height: 44px;
+    font-size: 12px;
+    padding: 0 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .app-page .clean-header .brand small {
+    display: none;
+  }
+
+  .app-page .clean-header .brand strong {
+    font-size: 14px;
+  }
+
+  .app-page .clean-header .header-actions .outline-button {
+    display: none;
+  }
+
+  .app-page .clean-header .header-actions .soft-button,
+  .app-page .clean-header .header-actions .primary-button {
+    max-width: 128px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-redesign:not(.app-page) .clean-header .brand,
+  .app-page .clean-header .brand,
+  .home-redesign:not(.app-page) .clean-header .nav-toggle,
+  .home-redesign:not(.app-page) .clean-header .nav-links a,
+  .home-redesign:not(.app-page) .clean-header .header-actions .primary-button,
+  .home-redesign:not(.app-page) .clean-header .header-actions .outline-button,
+  .home-redesign:not(.app-page) .home-hero .hero-actions .primary-button,
+  .home-redesign:not(.app-page) .home-hero .hero-actions .outline-button,
+  .app-page .clean-header .nav-links a,
+  .app-page .clean-header .header-actions .primary-button,
+  .app-page .clean-header .header-actions .outline-button,
+  .app-page .clean-header .header-actions .soft-button {
+    min-height: 44px;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .brand,
+  .app-page .clean-header .brand,
+  .home-redesign:not(.app-page) .clean-header .nav-links a,
+  .app-page .clean-header .nav-links a,
+  .clean-footer nav a {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .clean-footer nav a {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-redesign:not(.app-page) .clean-header .header-actions .primary-button,
+  .home-redesign:not(.app-page) .clean-header .header-actions .dark-button {
+    height: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Final UI polish: SaaS-grade rhythm, interaction, and accessibility. */
+:root {
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 10px 26px rgba(17, 24, 39, .055);
+  --shadow-md: 0 18px 48px rgba(31, 48, 59, .075);
+  --shadow-lg: 0 28px 70px rgba(31, 48, 59, .105);
+  --focus-ring: 0 0 0 4px rgba(18, 199, 178, .18);
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  line-height: 1.65;
+}
+
+.home-redesign h1,
+.home-redesign h2,
+.home-redesign h3,
+.app-page h1,
+.app-page h2,
+.app-page h3 {
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.home-redesign p,
+.app-page p,
+.clean-feature-grid p,
+.workflow-grid p,
+.pricing-card p,
+.faq-grid p {
+  text-wrap: pretty;
+}
+
+.home-redesign .clean-header,
+.app-page .clean-header,
+.clean-footer {
+  border-color: rgba(17, 24, 39, .065);
+}
+
+.home-redesign .clean-header {
+  transition: background-color .2s var(--ease-out), box-shadow .2s var(--ease-out), border-color .2s var(--ease-out);
+}
+
+.home-redesign .clean-header:hover,
+.app-page .clean-header:hover {
+  box-shadow: 0 12px 34px rgba(31, 48, 59, .045);
+}
+
+.brand,
+.nav-links a,
+.outline-button,
+.soft-button,
+.primary-button,
+.trial-note a,
+.pricing-card,
+.clean-feature-grid article,
+.workflow-grid article,
+.trust-strip article,
+.faq-grid article,
+.demo-browser,
+.demo-copy,
+.account-card,
+.installation-copy,
+.extension-permissions,
+.developer-card,
+.developer-checklist,
+.signup-card,
+.signup-form input,
+.signup-form select {
+  transition:
+    transform .18s var(--ease-out),
+    box-shadow .18s var(--ease-out),
+    border-color .18s var(--ease-out),
+    background-color .18s var(--ease-out),
+    color .18s var(--ease-out);
+}
+
+.outline-button,
+.soft-button,
+.primary-button,
+.trial-note a {
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.outline-button:hover,
+.soft-button:hover,
+.primary-button:hover,
+.trial-note a:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button:hover,
+.trial-note a:hover {
+  box-shadow: 0 18px 36px rgba(10, 146, 127, .2);
+}
+
+.dark-button:hover,
+.home-redesign:not(.app-page) .clean-header .header-actions .dark-button:hover,
+.home-redesign:not(.app-page) .clean-header .header-actions .primary-button:hover {
+  box-shadow: 0 18px 38px rgba(17, 24, 39, .2) !important;
+}
+
+.outline-button:hover,
+.soft-button:hover {
+  border-color: rgba(10, 146, 127, .28);
+  box-shadow: var(--shadow-sm);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 0;
+  box-shadow: var(--focus-ring);
+}
+
+button:disabled,
+.primary-button[aria-disabled="true"],
+.outline-button[aria-disabled="true"],
+.soft-button[aria-disabled="true"] {
+  cursor: not-allowed;
+  filter: grayscale(.12);
+  opacity: .68;
+  transform: none !important;
+}
+
+.home-redesign .trust-strip article,
+.home-redesign .clean-feature-grid article,
+.workflow-grid article,
+.pricing-card,
+.demo-browser,
+.demo-copy,
+.faq-grid article,
+.account-card,
+.signup-card,
+.signup-form,
+.developer-card,
+.developer-checklist,
+.extension-permissions,
+.install-premium,
+.content-section {
+  box-shadow: var(--shadow-md);
+}
+
+.home-redesign .trust-strip article:hover,
+.home-redesign .clean-feature-grid article:hover,
+.workflow-grid article:hover,
+.pricing-card:hover,
+.faq-grid article:hover,
+.developer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.home-redesign .pricing-card-featured {
+  box-shadow: 0 30px 78px rgba(18, 199, 178, .14), var(--shadow-md);
+}
+
+.eyebrow,
+.section-kicker,
+.step-label,
+.best-plan-badge {
+  letter-spacing: 0;
+}
+
+.signup-form input,
+.signup-form select,
+.app-page input,
+.app-page select,
+.app-page textarea {
+  transition: border-color .18s var(--ease-out), box-shadow .18s var(--ease-out), background-color .18s var(--ease-out);
+}
+
+.signup-form input:hover,
+.signup-form select:hover,
+.app-page input:hover,
+.app-page select:hover,
+.app-page textarea:hover {
+  border-color: rgba(10, 146, 127, .32);
+}
+
+.form-message,
+.field-error {
+  border-radius: var(--radius-sm);
+}
+
+.form-message:not([hidden]) {
+  border: 1px solid rgba(10, 146, 127, .16);
+  background: rgba(227, 248, 242, .72);
+  color: var(--mint-dark);
+  padding: 12px 14px;
+}
+
+.field-error:not(:empty) {
+  background: rgba(252, 235, 234, .6);
+  padding: 6px 8px;
+}
+
+.loading-dot,
+.dashboard-loading .loading-dot {
+  filter: drop-shadow(0 8px 18px rgba(18, 199, 178, .18));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-redesign h1,
+  .app-page h1 {
+    text-wrap: balance;
+  }
+
+  .home-redesign .trust-strip article:hover,
+  .home-redesign .clean-feature-grid article:hover,
+  .workflow-grid article:hover,
+  .pricing-card:hover,
+  .faq-grid article:hover,
+  .developer-card:hover {
+    transform: none;
+  }
+}
+
+/* Product entry rail: makes the homepage feel like a working SaaS platform. */
+.home-redesign:not(.app-page) .product-rail {
+  display: grid;
+  width: min(1120px, calc(100% - 32px));
+  grid-template-columns: minmax(240px, .72fr) minmax(0, 1.28fr);
+  align-items: stretch;
+  gap: 14px;
+  margin: 16px auto 0;
+  direction: rtl;
+}
+
+.product-rail-copy,
+.product-rail-actions {
+  border: 1px solid rgba(17, 24, 39, .07);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: var(--shadow-md);
+}
+
+.product-rail-copy {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  background:
+    radial-gradient(circle at 10% 16%, rgba(18, 199, 178, .18), transparent 34%),
+    #111827;
+  color: #fff;
+  padding: 22px;
+}
+
+.product-rail-copy span {
+  color: #99fff2;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.product-rail-copy strong {
+  max-width: 360px;
+  font-size: 19px;
+  line-height: 1.6;
+  text-wrap: balance;
+}
+
+.product-rail-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  padding: 1px;
+}
+
+.product-rail-actions a {
+  display: grid;
+  min-height: 104px;
+  align-content: center;
+  gap: 5px;
+  border-radius: 20px;
+  background: #fff;
+  padding: 16px;
+  transition:
+    transform .18s var(--ease-out),
+    background-color .18s var(--ease-out),
+    box-shadow .18s var(--ease-out),
+    color .18s var(--ease-out);
+}
+
+.product-rail-actions a:hover {
+  z-index: 1;
+  background: var(--mint-soft);
+  box-shadow: 0 16px 34px rgba(31, 48, 59, .08);
+  transform: translateY(-2px);
+}
+
+.product-rail-actions b {
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.product-rail-actions small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .home-redesign:not(.app-page) .product-rail {
+    grid-template-columns: 1fr;
+    margin-top: 12px;
+  }
+
+  .product-rail-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .home-redesign:not(.app-page) .product-rail {
+    width: calc(100% - 24px);
+  }
+
+  .product-rail-copy,
+  .product-rail-actions {
+    border-radius: 18px;
+  }
+
+  .product-rail-copy {
+    padding: 18px;
+  }
+
+  .product-rail-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .product-rail-actions a {
+    min-height: 76px;
+    border-radius: 16px;
+  }
+
+  .product-rail-actions a:hover {
+    transform: none;
+  }
+}
+
+/* Homepage product polish: tighter SaaS rhythm without changing identity. */
+.home-redesign:not(.app-page) .home-hero {
+  min-height: clamp(500px, 58vh, 640px);
+  padding-bottom: clamp(48px, 7vw, 76px);
+}
+
+.home-redesign:not(.app-page) .home-headline {
+  max-width: 780px;
+}
+
+.home-redesign:not(.app-page) .home-hero .hero-text {
+  max-width: 610px;
+}
+
+.home-redesign:not(.app-page) .home-trust {
+  margin-top: -8px;
+}
+
+.home-redesign:not(.app-page) .workflow-section,
+.home-redesign:not(.app-page) .product-demo-section,
+.home-redesign:not(.app-page) .features-section,
+.home-redesign:not(.app-page) .coming-soon-section,
+.home-redesign:not(.app-page) .install-premium,
+.home-redesign:not(.app-page) .pricing-saas,
+.home-redesign:not(.app-page) .faq-section,
+.home-redesign:not(.app-page) .account-section {
+  scroll-margin-top: 92px;
+}
+
+.home-redesign:not(.app-page) .section-heading,
+.home-redesign:not(.app-page) .workflow-copy,
+.home-redesign:not(.app-page) .pricing-heading {
+  margin-inline: auto;
+}
+
+.home-redesign:not(.app-page) .centered-heading {
+  max-width: 780px;
+}
+
+.home-redesign:not(.app-page) .clean-feature-grid,
+.home-redesign:not(.app-page) .workflow-grid,
+.home-redesign:not(.app-page) .faq-grid,
+.home-redesign:not(.app-page) .coming-grid {
+  align-items: stretch;
+}
+
+.home-redesign:not(.app-page) .clean-feature-grid article,
+.home-redesign:not(.app-page) .workflow-grid article,
+.home-redesign:not(.app-page) .faq-grid article,
+.home-redesign:not(.app-page) .coming-grid article,
+.home-redesign:not(.app-page) .trust-strip article {
+  min-height: 100%;
+}
+
+.home-redesign:not(.app-page) .demo-stage,
+.home-redesign:not(.app-page) .pricing-grid {
+  align-items: stretch;
+}
+
+.home-redesign:not(.app-page) .demo-copy,
+.home-redesign:not(.app-page) .pricing-card {
+  align-content: start;
+}
+
+@media (min-width: 760px) {
+  .home-redesign:not(.app-page) .clean-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .home-redesign:not(.app-page) .home-hero {
+    min-height: auto;
+    padding-bottom: 38px;
+  }
+
+  .home-redesign:not(.app-page) .home-trust {
+    margin-top: 0;
+  }
+}
+
+/* Homepage mobile and desktop refinement: final layer. */
+.home-redesign:not(.app-page) {
+  --home-max: 1120px;
+  --home-gutter: clamp(16px, 4vw, 40px);
+}
+
+.home-redesign:not(.app-page) .clean-header,
+.home-redesign:not(.app-page) .home-hero,
+.home-redesign:not(.app-page) .trust-strip,
+.home-redesign:not(.app-page) .product-rail,
+.home-redesign:not(.app-page) .workflow-section,
+.home-redesign:not(.app-page) .product-demo-section,
+.home-redesign:not(.app-page) .features-section,
+.home-redesign:not(.app-page) .coming-soon-section,
+.home-redesign:not(.app-page) .install-premium,
+.home-redesign:not(.app-page) .pricing-saas,
+.home-redesign:not(.app-page) .faq-section,
+.home-redesign:not(.app-page) .cta-panel {
+  width: min(var(--home-max), calc(100% - (var(--home-gutter) * 2)));
+  max-width: var(--home-max);
+}
+
+.home-redesign:not(.app-page) .clean-header {
+  position: sticky;
+  top: 10px;
+  z-index: 90;
+  display: grid;
+  grid-template-columns: auto minmax(360px, 1fr) auto;
+  gap: clamp(18px, 4vw, 48px);
+  min-height: 68px;
+  margin: 10px auto 0;
+  border: 1px solid rgba(17, 24, 39, .06);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .88);
+  padding: 10px 14px;
+  box-shadow: 0 14px 34px rgba(31, 48, 59, .055);
+}
+
+.home-redesign:not(.app-page) .clean-header .brand {
+  min-width: 0;
+  gap: 8px;
+}
+
+.home-redesign:not(.app-page) .clean-header .brand-mark {
+  width: 32px;
+  height: 32px;
+}
+
+.home-redesign:not(.app-page) .clean-header .brand strong {
+  display: block;
+  color: #111827;
+  font-size: 14px;
+}
+
+.home-redesign:not(.app-page) .clean-header .nav-links {
+  display: flex;
+  position: static;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  flex-direction: row;
+  justify-content: center;
+  gap: clamp(18px, 3vw, 38px);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  opacity: 1;
+  overflow: visible;
+  padding: 0;
+  pointer-events: auto;
+  transform: none;
+}
+
+.home-redesign:not(.app-page) .clean-header .nav-links a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #647178;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0;
+}
+
+.home-redesign:not(.app-page) .clean-header .nav-links a:hover {
+  color: var(--mint-dark);
+  transform: none;
+}
+
+.home-redesign:not(.app-page) .clean-header .header-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 0;
+}
+
+.home-redesign:not(.app-page) .clean-header .header-actions .outline-button,
+.home-redesign:not(.app-page) .clean-header .header-actions .primary-button,
+.home-redesign:not(.app-page) .clean-header .header-actions .dark-button {
+  min-height: 40px;
+  border-radius: 12px;
+  font-size: 12px;
+  padding: 0 14px;
+}
+
+.home-redesign:not(.app-page) .home-hero {
+  display: grid;
+  min-height: clamp(360px, 38vh, 430px);
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  padding: clamp(30px, 4vw, 46px) 0 clamp(22px, 3vw, 34px);
+  text-align: center;
+}
+
+.home-redesign:not(.app-page) .hero-copy {
+  width: min(760px, 100%);
+}
+
+.home-redesign:not(.app-page) .home-hero .eyebrow {
+  margin-bottom: 14px;
+}
+
+.home-redesign:not(.app-page) .home-headline {
+  max-width: 760px;
+  margin-bottom: 18px;
+  font-size: clamp(44px, 5.3vw, 68px);
+  line-height: 1.15;
+}
+
+.home-redesign:not(.app-page) .home-hero .hero-text {
+  max-width: 580px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.home-redesign:not(.app-page) .home-hero .hero-actions {
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.home-redesign:not(.app-page) .trust-strip {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 auto 14px;
+}
+
+.home-redesign:not(.app-page) .trust-strip article,
+.home-redesign:not(.app-page) .workflow-grid article,
+.home-redesign:not(.app-page) .clean-feature-grid article,
+.home-redesign:not(.app-page) .faq-grid article {
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.home-redesign:not(.app-page) .product-rail {
+  margin: 16px auto 64px;
+}
+
+.home-redesign:not(.app-page) .workflow-section,
+.home-redesign:not(.app-page) .product-demo-section,
+.home-redesign:not(.app-page) .features-section,
+.home-redesign:not(.app-page) .pricing-saas,
+.home-redesign:not(.app-page) .faq-section,
+.home-redesign:not(.app-page) .cta-panel {
+  margin-inline: auto;
+}
+
+.home-redesign:not(.app-page) .workflow-section,
+.home-redesign:not(.app-page) .features-section {
+  padding: clamp(54px, 7vw, 84px) 0;
+}
+
+.home-redesign:not(.app-page) .product-demo-section {
+  padding: 0 0 clamp(56px, 8vw, 86px);
+}
+
+.home-redesign:not(.app-page) .install-premium {
+  margin: 70px auto;
+}
+
+.home-redesign:not(.app-page) .pricing-saas {
+  margin: 0 auto 72px;
+}
+
+.home-redesign:not(.app-page) .faq-section {
+  margin-bottom: 72px;
+  padding-inline: 0;
+}
+
+.home-redesign:not(.app-page) .cta-panel {
+  margin-bottom: 72px;
+}
+
+@media (max-width: 980px) {
+  .home-redesign:not(.app-page) .clean-header {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-links {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  .home-redesign:not(.app-page) {
+    --home-gutter: 14px;
+  }
+
+  .home-redesign:not(.app-page) .clean-header {
+    top: 8px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 10px;
+    min-height: 56px;
+    border-radius: 16px;
+    padding: 8px;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-toggle {
+    display: inline-grid;
+    grid-column: 1;
+    grid-row: 1;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 1px solid rgba(17, 24, 39, .08);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-toggle span {
+    width: 17px;
+    height: 2px;
+    border-radius: 99px;
+    background: #111827;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .brand {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .brand-mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .brand strong {
+    font-size: 13px;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .header-actions {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .header-actions .outline-button {
+    display: none;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .header-actions .primary-button,
+  .home-redesign:not(.app-page) .clean-header .header-actions .dark-button {
+    min-height: 40px;
+    border-radius: 12px;
+    font-size: 11px;
+    padding: 0 12px;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-links {
+    position: fixed;
+    inset: 74px var(--home-gutter) auto var(--home-gutter);
+    z-index: 95;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    border: 1px solid rgba(17, 24, 39, .08);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .97);
+    box-shadow: 0 24px 64px rgba(17, 24, 39, .16);
+    opacity: 0;
+    padding: 10px;
+    pointer-events: none;
+    transform: translateY(-10px);
+  }
+
+  .home-redesign:not(.app-page) .clean-header.is-menu-open .nav-links {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-links a {
+    min-height: 48px;
+    justify-content: flex-start;
+    border-radius: 13px;
+    background: #f8fbfc;
+    padding: 0 14px;
+  }
+
+  .home-redesign:not(.app-page) .nav-backdrop:not([hidden]) {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: block;
+    background: rgba(15, 23, 42, .18);
+    backdrop-filter: blur(2px);
+  }
+
+  .home-redesign:not(.app-page) .home-hero {
+    min-height: auto;
+    padding: 30px 0 22px;
+  }
+
+  .home-redesign:not(.app-page) .home-hero .eyebrow {
+    margin-bottom: 12px;
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+
+  .home-redesign:not(.app-page) .home-headline {
+    width: min(340px, 100%);
+    margin-inline: auto;
+    margin-bottom: 14px;
+    font-size: clamp(31px, 9.4vw, 38px) !important;
+    line-height: 1.22 !important;
+  }
+
+  .home-redesign:not(.app-page) .home-headline span,
+  .home-redesign:not(.app-page) .home-headline em {
+    display: inline;
+  }
+
+  .home-redesign:not(.app-page) .home-hero .hero-text {
+    width: min(330px, 100%);
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  .home-redesign:not(.app-page) .home-hero .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: min(330px, 100%);
+    gap: 9px;
+    margin: 20px auto 0;
+  }
+
+  .home-redesign:not(.app-page) .home-hero .primary-button,
+  .home-redesign:not(.app-page) .home-hero .outline-button {
+    width: 100%;
+    min-height: 46px;
+    border-radius: 13px;
+    font-size: 13px;
+  }
+
+  .home-redesign:not(.app-page) .trust-strip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .home-redesign:not(.app-page) .trust-strip article,
+  .home-redesign:not(.app-page) .workflow-grid article,
+  .home-redesign:not(.app-page) .clean-feature-grid article,
+  .home-redesign:not(.app-page) .faq-grid article,
+  .home-redesign:not(.app-page) .coming-grid article {
+    display: grid;
+    gap: 7px;
+    min-height: 0;
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .home-redesign:not(.app-page) .trust-strip strong,
+  .home-redesign:not(.app-page) .workflow-grid strong,
+  .home-redesign:not(.app-page) .clean-feature-grid h3,
+  .home-redesign:not(.app-page) .faq-grid h3 {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .home-redesign:not(.app-page) .trust-strip p,
+  .home-redesign:not(.app-page) .workflow-grid p,
+  .home-redesign:not(.app-page) .clean-feature-grid p,
+  .home-redesign:not(.app-page) .faq-grid p,
+  .home-redesign:not(.app-page) .coming-grid p {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.75;
+  }
+
+  .home-redesign:not(.app-page) .product-rail {
+    grid-template-columns: 1fr;
+    margin: 12px auto 42px;
+  }
+
+  .home-redesign:not(.app-page) .product-rail-copy {
+    padding: 16px;
+  }
+
+  .home-redesign:not(.app-page) .product-rail-copy strong {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .home-redesign:not(.app-page) .product-rail-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-redesign:not(.app-page) .product-rail-actions a {
+    min-height: 78px;
+    border-radius: 15px;
+    padding: 13px;
+  }
+
+  .home-redesign:not(.app-page) .product-rail-actions b {
+    font-size: 13px;
+  }
+
+  .home-redesign:not(.app-page) .product-rail-actions small {
+    font-size: 11px;
+  }
+
+  .home-redesign:not(.app-page) .workflow-section,
+  .home-redesign:not(.app-page) .features-section {
+    padding: 44px 0;
+  }
+
+  .home-redesign:not(.app-page) .workflow-copy h2,
+  .home-redesign:not(.app-page) .section-heading h2,
+  .home-redesign:not(.app-page) .pricing-heading h2,
+  .home-redesign:not(.app-page) .install-copy h2,
+  .home-redesign:not(.app-page) .cta-panel h2 {
+    font-size: clamp(24px, 7.4vw, 31px) !important;
+    line-height: 1.32 !important;
+  }
+
+  .home-redesign:not(.app-page) .section-heading p,
+  .home-redesign:not(.app-page) .pricing-heading p,
+  .home-redesign:not(.app-page) .install-lead,
+  .home-redesign:not(.app-page) .cta-panel p {
+    font-size: 13px !important;
+    line-height: 1.8 !important;
+  }
+
+  .home-redesign:not(.app-page) .workflow-grid,
+  .home-redesign:not(.app-page) .features-section .clean-feature-grid,
+  .home-redesign:not(.app-page) .faq-grid,
+  .home-redesign:not(.app-page) .coming-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .home-redesign:not(.app-page) .product-demo-section {
+    padding-bottom: 44px;
+  }
+
+  .home-redesign:not(.app-page) .demo-stage {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .home-redesign:not(.app-page) .demo-browser,
+  .home-redesign:not(.app-page) .demo-copy {
+    border-radius: 18px;
+  }
+
+  .home-redesign:not(.app-page) .demo-browser {
+    overflow: hidden;
+  }
+
+  .home-redesign:not(.app-page) .demo-layout {
+    min-height: 260px;
+    padding: 14px;
+  }
+
+  .home-redesign:not(.app-page) .demo-extension-card {
+    right: 14px;
+    left: 14px;
+    bottom: 14px;
+    width: auto;
+  }
+
+  .home-redesign:not(.app-page) .demo-copy {
+    padding: 16px;
+  }
+
+  .home-redesign:not(.app-page) .coming-soon-section {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 0 auto 44px;
+    padding: 0;
+  }
+
+  .home-redesign:not(.app-page) .install-premium {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 44px auto;
+    border-radius: 22px;
+    padding: 20px;
+  }
+
+  .home-redesign:not(.app-page) .install-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .home-redesign:not(.app-page) .install-main-button,
+  .home-redesign:not(.app-page) .install-dev-link {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .home-redesign:not(.app-page) .install-user-steps {
+    gap: 8px;
+  }
+
+  .home-redesign:not(.app-page) .install-user-steps li {
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 13px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    padding: 11px;
+  }
+
+  .home-redesign:not(.app-page) .install-visual {
+    gap: 14px;
+    padding: 0;
+  }
+
+  .home-redesign:not(.app-page) .install-illustration {
+    min-height: 280px;
+    padding: 14px;
+  }
+
+  .home-redesign:not(.app-page) .extension-popover {
+    right: 20px;
+    left: 20px;
+    width: auto;
+  }
+
+  .home-redesign:not(.app-page) .permissions-card {
+    padding: 16px;
+  }
+
+  .home-redesign:not(.app-page) .pricing-saas {
+    gap: 14px;
+    margin-bottom: 44px;
+    border-radius: 22px;
+    padding: 20px;
+  }
+
+  .home-redesign:not(.app-page) .trial-note {
+    gap: 8px;
+    border-radius: 15px;
+    padding: 14px;
+  }
+
+  .home-redesign:not(.app-page) .trial-note span {
+    flex: 1 1 100%;
+    font-size: 12.5px;
+  }
+
+  .home-redesign:not(.app-page) .pricing-saas .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .home-redesign:not(.app-page) .pricing-saas .pricing-card {
+    gap: 12px;
+    border-radius: 18px;
+    padding: 18px;
+  }
+
+  .home-redesign:not(.app-page) .pricing-saas .plan-topline strong {
+    font-size: 18px;
+  }
+
+  .home-redesign:not(.app-page) .pricing-saas .plan-price b {
+    font-size: 48px;
+  }
+
+  .home-redesign:not(.app-page) .pricing-saas .plan-price span,
+  .home-redesign:not(.app-page) .plan-summary,
+  .home-redesign:not(.app-page) .pricing-card li {
+    font-size: 12.5px;
+    line-height: 1.75;
+  }
+
+  .home-redesign:not(.app-page) .pricing-card .primary-button,
+  .home-redesign:not(.app-page) .pricing-card .outline-button {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .home-redesign:not(.app-page) .faq-section {
+    margin-bottom: 44px;
+    padding-inline: 0;
+  }
+
+  .home-redesign:not(.app-page) .cta-panel {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 44px;
+    border-radius: 20px;
+    padding: 18px;
+    text-align: right;
+  }
+
+  .home-redesign:not(.app-page) .cta-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .home-redesign:not(.app-page) .cta-actions .primary-button,
+  .home-redesign:not(.app-page) .cta-actions .outline-button,
+  .home-redesign:not(.app-page) .account-card .primary-button,
+  .home-redesign:not(.app-page) .account-card .soft-button {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .home-redesign:not(.app-page) .account-card {
+    border-radius: 18px;
+    padding: 16px;
+  }
+
+  .home-redesign:not(.app-page) .clean-footer {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    padding: 22px 14px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-redesign:not(.app-page) {
+    --home-gutter: 10px;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .brand strong {
+    display: none;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .header-actions .primary-button,
+  .home-redesign:not(.app-page) .clean-header .header-actions .dark-button {
+    padding-inline: 10px;
+  }
+
+  .home-redesign:not(.app-page) .home-headline {
+    font-size: 30px !important;
+  }
+
+  .home-redesign:not(.app-page) .product-rail-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Compact card layout for small screens: removes desktop white space. */
+@media (max-width: 767px) {
+  .home-redesign:not(.app-page) .features-section {
+    padding-top: 34px;
+  }
+
+  .home-redesign:not(.app-page) .features-section .section-heading {
+    margin-bottom: 18px;
+  }
+
+  .home-redesign:not(.app-page) .features-section .clean-feature-grid {
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .home-redesign:not(.app-page) .features-section .clean-feature-grid article {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "icon title"
+      "icon text";
+    align-items: start;
+    gap: 5px 12px;
+    min-height: 0 !important;
+    border-radius: 16px;
+    padding: 14px;
+    text-align: right;
+  }
+
+  .home-redesign:not(.app-page) .features-section .clean-feature-grid .feature-icon {
+    grid-area: icon;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    font-size: 11px;
+  }
+
+  .home-redesign:not(.app-page) .features-section .clean-feature-grid h3 {
+    grid-area: title;
+    margin: 1px 0 0;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .home-redesign:not(.app-page) .features-section .clean-feature-grid p {
+    grid-area: text;
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.75;
+  }
+
+  .home-redesign:not(.app-page) .workflow-grid article,
+  .home-redesign:not(.app-page) .trust-strip article {
+    min-height: 0 !important;
+    padding: 14px;
+  }
+
+  .home-redesign:not(.app-page) .workflow-grid span,
+  .home-redesign:not(.app-page) .trust-icon {
+    width: 38px;
+    height: 38px;
+    margin: 0;
+    border-radius: 12px;
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .home-redesign:not(.app-page) .features-section .clean-feature-grid article {
+    min-height: 150px !important;
+    padding: 18px;
+  }
+
+  .home-redesign:not(.app-page) .features-section .clean-feature-grid h3 {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-redesign:not(.app-page) .clean-header {
+    padding: var(--header-inner-gap) !important;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-toggle {
+    width: var(--header-control-size) !important;
+    height: var(--header-control-size) !important;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .header-actions .primary-button,
+  .home-redesign:not(.app-page) .clean-header .header-actions .dark-button {
+    min-height: var(--header-control-size) !important;
+  }
+}
+
+/* Unified tablet/mobile header: keeps controls inside one measured bar. */
+@media (max-width: 900px) {
+  .home-redesign:not(.app-page) {
+    --home-gutter: clamp(12px, 4vw, 24px);
+    --header-inner-gap: clamp(10px, 2.4vw, 18px);
+    --header-control-size: clamp(42px, 8vw, 46px);
+  }
+
+  .home-redesign:not(.app-page) .clean-header {
+    position: sticky;
+    top: 8px;
+    display: grid !important;
+    width: min(var(--home-max), calc(100% - (var(--home-gutter) * 2))) !important;
+    grid-template-columns: var(--header-control-size) minmax(0, 1fr) auto !important;
+    grid-template-areas: "menu brand actions";
+    align-items: center;
+    gap: var(--header-inner-gap);
+    min-height: calc(var(--header-control-size) + (var(--header-inner-gap) * 2));
+    margin: 10px auto 0;
+    overflow: visible;
+    border-radius: 18px;
+    padding: var(--header-inner-gap);
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-toggle {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 3;
+    display: inline-grid !important;
+    grid-area: menu;
+    width: var(--header-control-size);
+    height: var(--header-control-size);
+    place-items: center;
+    margin: 0;
+    border: 1px solid rgba(17, 24, 39, .08);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: #111827;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .brand {
+    grid-area: brand;
+    justify-self: center;
+    min-width: 0;
+    margin: 0;
+    transform: none;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .brand-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .brand strong {
+    display: block;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .header-actions {
+    grid-area: actions;
+    justify-self: end;
+    margin: 0;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .header-actions .outline-button {
+    display: none !important;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .header-actions .primary-button,
+  .home-redesign:not(.app-page) .clean-header .header-actions .dark-button {
+    min-height: var(--header-control-size);
+    border-radius: 14px;
+    font-size: 12px;
+    padding: 0 clamp(12px, 2.6vw, 16px);
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-links {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    right: 0 !important;
+    left: 0 !important;
+    z-index: 2;
+    display: grid !important;
+    width: 100% !important;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    border: 1px solid rgba(17, 24, 39, .08);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .98);
+    box-shadow: 0 20px 46px rgba(17, 24, 39, .14);
+    opacity: 0;
+    overflow: hidden;
+    padding: 10px;
+    pointer-events: none;
+    transform: translateY(-8px);
+  }
+
+  .home-redesign:not(.app-page) .clean-header.is-menu-open .nav-links {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-links a {
+    display: flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 13px;
+    background: #f7fbfb;
+    color: #36454f;
+    font-size: 13px;
+    padding: 0 14px;
+  }
+
+  .home-redesign:not(.app-page) .nav-backdrop:not([hidden]) {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: block;
+    background: rgba(15, 23, 42, .14);
+    backdrop-filter: blur(2px);
+  }
+}
+
+/* Desktop header width only: wider bar, same height and controls. */
+@media (min-width: 901px) {
+  .home-redesign:not(.app-page) .clean-header {
+    width: min(1240px, calc(100% - 56px)) !important;
+    max-width: 1240px !important;
+  }
+}
+
+/* Desktop header alignment: true centered navigation without changing height. */
+@media (min-width: 901px) {
+  .home-redesign:not(.app-page) .clean-header {
+    position: sticky;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 24px !important;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .brand {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    min-width: 190px;
+    justify-content: flex-start;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-links {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    display: flex !important;
+    width: auto !important;
+    min-height: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    opacity: 1;
+    overflow: visible;
+    padding: 0;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .nav-links a {
+    min-height: 40px;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  .home-redesign:not(.app-page) .clean-header .header-actions {
+    position: relative;
+    z-index: 2;
+    min-width: 210px;
+    justify-content: flex-end;
+    gap: 16px;
+    margin: 0;
+  }
+}
+
+/* Public inner pages use the same desktop header geometry as the homepage. */
+@media (min-width: 901px) {
+  .home-redesign.app-page .clean-header {
+    position: sticky;
+    top: 10px;
+    z-index: 90;
+    display: flex !important;
+    width: min(1240px, calc(100% - 56px)) !important;
+    max-width: 1240px !important;
+    min-height: 72px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px auto 0;
+    overflow: visible;
+    border: 1px solid rgba(17, 24, 39, .06);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .88);
+    box-shadow: 0 14px 34px rgba(31, 48, 59, .055);
+    padding: 10px 24px !important;
+  }
+
+  .home-redesign.app-page .clean-header .brand {
+    position: relative;
+    z-index: 2;
+    min-width: 190px;
+    justify-content: flex-start;
+    margin: 0;
+  }
+
+  .home-redesign.app-page .clean-header .brand span:not(.brand-mark) {
+    display: block;
+  }
+
+  .home-redesign.app-page .clean-header .brand small {
+    display: none;
+  }
+
+  .home-redesign.app-page .clean-header .brand-mark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .home-redesign.app-page .clean-header .brand strong {
+    display: block;
+    color: #111827;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .home-redesign.app-page .clean-header .nav-links {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    display: flex !important;
+    width: auto !important;
+    min-height: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    opacity: 1;
+    overflow: visible;
+    padding: 0;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .home-redesign.app-page .clean-header .nav-links a {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #647178;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  .home-redesign.app-page .clean-header .nav-links a:hover,
+  .home-redesign.app-page .clean-header .nav-links a.active-link {
+    color: var(--mint-dark);
+  }
+
+  .home-redesign.app-page .clean-header .header-actions {
+    position: relative;
+    z-index: 2;
+    min-width: 210px;
+    justify-content: flex-end;
+    gap: 16px;
+    margin: 0;
+  }
+
+  .home-redesign.app-page .clean-header .header-actions .outline-button,
+  .home-redesign.app-page .clean-header .header-actions .soft-button,
+  .home-redesign.app-page .clean-header .header-actions .primary-button,
+  .home-redesign.app-page .clean-header .header-actions .dark-button {
+    min-height: 40px;
+    border-radius: 12px;
+    font-size: 12px;
+    padding: 0 14px;
+  }
+}
+
+/* Pricing plan buttons: same visual treatment and bottom alignment. */
+.home-redesign:not(.app-page) .pricing-saas .pricing-card {
+  align-content: stretch;
+  grid-template-rows: auto auto auto 1fr auto;
+}
+
+.home-redesign:not(.app-page) .pricing-saas .pricing-card .primary-button,
+.home-redesign:not(.app-page) .pricing-saas .pricing-card .outline-button {
+  width: 100%;
+  min-height: 46px;
+  justify-content: center;
+  align-self: end;
+  margin-top: 0;
+  border: 0 !important;
+  border-radius: 999px;
+  background: #02070a !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  font-weight: 900;
+  text-align: center;
+}
+
+.home-redesign:not(.app-page) .pricing-saas .pricing-card .primary-button:hover,
+.home-redesign:not(.app-page) .pricing-saas .pricing-card .outline-button:hover {
+  background: #111827 !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .home-redesign:not(.app-page) .pricing-saas .pricing-card .primary-button,
+  .home-redesign:not(.app-page) .pricing-saas .pricing-card .outline-button {
+    min-height: 44px;
+    border-radius: 14px;
+  }
+}

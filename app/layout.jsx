@@ -2,6 +2,7 @@ import '../styles.css';
 import '../tools.css';
 import '../review.css';
 import '../admin.css';
+import '../dashboard.css';
 
 export const metadata = {
   title: 'تحضيري',
